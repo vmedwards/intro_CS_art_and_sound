@@ -1,0 +1,404 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,euscript,graphicx}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}
+\usepackage{fancybox,color}
+\usepackage[footnotesize]{caption}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[top=0.9375in, right=0.9375in, left=0.9375in, bottom=0.9375in, centering]{geometry}
+\usepackage{bm}
+
+\usepackage{amsthm}
+
+
+% -- Loading the code block package:
+\usepackage{listings}
+% -- Basic formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{times}
+\setlength{\parindent}{8pt}
+\usepackage{indentfirst}
+% -- Defining colors:
+\usepackage[dvipsnames]{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% Definig a custom style:
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% -- Setting up the custom style:
+\lstset{style=mystyle}
+
+
+% IEEE uses Times Roman font, so we'll default to Times.
+% These three commands make up the entire times.sty package.
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+\newcommand{\squeeze}{\vspace{-0.1in}}
+\newcommand{\changed}[1]{\textcolor{blue}{#1}} %generates text in blue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\Large {\bf Lab 1: Setting up your workstation}}
+  
+\end{center}
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\section{Summary}
+For our first lab we will set up your computer to run the necessary software. 
+This requires installing Python and installing Microsoft Visual Studio Code.
+I have included instructions for both the Mac OS and Windows. 
+At the end of this lab you should be able to open a text editor and run a basic python program in the Terminal.
+
+The assignment instructions come directly from the Introduction to Computer Science Course instructions from the Colby College Computer Science Department (CS 151 and CS 152).
+Direct credit and acknowledgements of sources are at the end of this document. 
+
+\section{Installing Python}
+Python is an interpreted programming language that is commonly used in introduction to computer science classes due to the highly readable syntax.
+It is free to install and runs on many different operating systems. 
+
+\subsection{macOS}
+Installation Instructions: 
+\begin{enumerate}
+\item Download Python 3.13.7 at \url{https://www.python.org/downloads/macos/}
+\item Open the downloaded file called \textit{python-3.13.7-macos11.pkg} which should be in the Downloads folder. Note if you do not see the \textit{.pkg} this is fine. 
+\item Double click on the file and a pop-up window will appear, follow the steps clicking Continue button 3 times and Agree when prompted
+\item Click continue one more time
+\item Click install when prompted
+\item You will enter your computer password and Python will install (this might take a minute or so be patient). After this process finishes, close the installer and delete the file in the Downloads folder.
+\end{enumerate}
+
+Check that it is installed correctly:
+\begin{enumerate}
+\item Open a Terminal, this can be found in the Applications/Utilities folder in Finder or searching for it using Spotlight (Cmd+spacebar, type Terminal and then press Enter)
+\item A small black window will open. Type: \texttt{python3 --version} and hit Enter. It should return Python 3.13.7, which means things are installed correctly!
+\end{enumerate}
+
+We now want to make it so that when you type the command python it works instead of needing to type python3.
+In the Terminal, do the following:
+\begin{enumerate}
+\item echo \$SHELL
+\item If the output is bash:
+  \begin{enumerate}
+  \item \texttt{sudo nano \textasciitilde{}/.bash\textunderscore profile}
+  \item Type your computer password into the terminal
+  \item Add the following line: \texttt{alias python=python3}
+  \item Add the following line: \texttt{alias pip=pip3}
+  \item Save file by hitting Ctrl + x and hitting Y and then Enter (or return) when prompted to save
+  \item Close out of the Terminal
+  \end{enumerate}
+\item If the output is zsh:
+  \begin{enumerate}
+  \item \texttt{sudo nano \textasciitilde{}/.zshrc}
+    \item Type your password when prompted
+  \item Add the following line: \texttt{alias python=python3}
+  \item Add the following line: \texttt{alias pip=pip3}
+  \item Save file by hitting Ctrl + x and hitting Y and then Enter (or return) when prompted to save
+  \item A new bar will appear at the bottom with TAB hit enter and everything should save.
+  \item Close out of the Terminal
+  \end{enumerate}
+\item Test that this is working by opening a new Terminal and typing \texttt{python --version}
+\end{enumerate}
+
+
+\subsection{Windows}
+Installation Instructions: 
+\begin{enumerate}
+\item Download Windows installer(64-bit) at
+
+  \url{https://www.python.org/downloads/windows/}
+
+\item Run the installer file called \textit{python-3.13.7-amd64.exe}
+\item An installation window will pop up, check the last box at the bottom of the window: ``Add Python 3.13.7 to PATH'' and ``Use admin privileges when installing py.exe''
+\item Click ``Install Now'' at the top.
+  \item Hit close button once the successful install button appears.
+\end{enumerate}
+
+Check that it is installed correctly: 
+\begin{enumerate}
+\item Press WinKey + r to open the Run box.
+\item Type cmd into the box and press Enter
+  \item Type \texttt{python --version}, then press Enter. It should print Python 3.13.7 which means things are installed correctly
+\end{enumerate}
+
+
+\section{Instling Microsoft Visual Studio Code}
+For all projects we are going to write code in a text editor. While there are a wide range of text editors out there, I recommend using Microscoft Visual Studio Code (VS Code for short).
+This editor has built in features we will use for all the assignments.
+
+\subsection{macOS}
+Installation Instructions: 
+\begin{enumerate}
+\item Download Microscoft VS Code at \url{https://code.visualstudio.com/Download}. Select the Mac OS option.
+\item You should see a file with a blue icon called Visual Studio Code in your Downloads folder. Drag it into your Applications folder
+\item Open VS Code and create a new file called \textbf{test.py}. To make a new file go to the top bar of the application click File $\rightarrow$ New File, a pop up window will appear and you will be prompted to name the new file.
+  \item Once you have made your new file, you should see a pop-up in bottom right corner asking you about installing a Python extension. Click Install
+\item VS Code should install it, then you should see Python at the bottom right corner of the screen
+\item If a drop-down menu should appear with some options at the top. Then Click the entry that says 3.13.7 followed by /usr/local/bin/python3
+\item Dismiss the pop-up window that continually appears about ``Linter pylint''. Click Do not show again.
+\end{enumerate}
+
+\subsection{Windows}
+Installation Instructions: 
+\begin{enumerate}
+\item Download Microscoft VS Code at \url{https://code.visualstudio.com/Download}. Select the Windows option
+\item Dobule-click the installer file to install it on your computer
+\item To integrate Python with VS Code, open and create a new file called \textbf{test.py}. To make a new file go to the top bar of the application click File $\rightarrow$ New File, a pop up window will appear and you will be prompted to name the new file.
+\item A pop-up in VS code about a Python extension being recommended will appear. Click Install
+\item You should see ``Python 3.13.7'' in the bottom right corner of the editor which means you are ready to go
+\end{enumerate}
+
+We will now install an additional package necessary on Windows to do the assignments this semester.
+\begin{enumerate}
+\item Download Git from \url{https://git-scm.com/download/win}
+\item Double click and install Git, this will ask you a series of questions agree to the default settings and install.
+\item Open Visual Studio Code and press (Ctrl + \textasciigrave) where  \textasciigrave is the same key as \textasciitilde{}.
+\item Open the command palette using (Ctrl + Shift + p)
+\item Type - Select Default Profile
+\item Select Git Bash from the options
+\item Close Visual Studio
+\item Reopen Visual Studio and you should see bash in the right bottom corner next to the terminal
+\end{enumerate}
+These instructions came from:
+\url{https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal}
+
+\section{Show file extensions}
+To ensure you can see which files are code files, we need to make sure the proper settings are setup.
+
+\subsection{macOS}
+\begin{enumerate}
+\item Go to the Finder preferences. (This is found on the top left corner of the screen and click preferences)
+\item Click Advanced
+\item Make sure \textit{Show all filename extensions} is checked.
+\end{enumerate}
+
+
+\subsection{Windows}
+\begin{enumerate}
+\item Open up File Explorer 
+\item Go to View
+ \item Click \textit{File name extensions} 
+\end{enumerate}
+
+In both cases you should see \textit{test.py} with the .py showing in your Finder or Explorer window. 
+
+\section{Installing Turtle Graphics and Pysonic}
+In VS Code, open a terminal. The shorthand is Ctrl + \textasciigrave where  \textasciigrave is the same key as \textasciitilde{}.
+
+If you do not want to use the short hand then: 
+\begin{itemize}
+\item \textbf{Mac} Go to the Terminal menu on top bar and select New Terminal
+\item \textbf{Windows} Go to the 3 dots (...) on the top bar, select Terminal, New Terminal
+\end{itemize}
+In the next section we will go over the details of what a terminal is and why we should use it etc. 
+In the terminal, on both operating systems do the following:
+
+\vspace{5mm}
+
+\textit{ python --version}
+
+\textit{pip --version}
+
+\textit{pip install matplotlib}
+
+\vspace{5mm}
+
+\section{Introduction to the Terminal}
+We will now go over what a terminal is, how to use it, and why you should care. 
+
+\subsection{What is the Terminal?}
+The terminal is a text-based interface to everything on your computer that allows you to manipulate files, execute computer programs, and open documents.
+Unlike your graphical interface like Finder (Mac) or Explorer (Windows) which allow you to point and click different icons and drag things around the screen using the mouse, a terminal only allows input from the keyboard.
+Anything you can do using your point and click interface you can do using a terminal, however, the reverse is not true.
+
+Note that historically Windows uses a command prompt terminal interface and Mac OS / Linux use a bash terminal interface.
+There are differences in the commands used in these systems and for consistency we have set up everyone's VS Code to use a bash style interface. 
+
+
+\underline{Why you should care?}
+\begin{itemize}
+\item Terminal is a long standing tool in computing that has well established tools that are not changing or going away. 
+\item There are easy ways to do tasks with lots of files, \textit{e.g.}, renaming 1000 files with a single line in the terminal.
+\item Finally, the code we will write this semester will run in the terminal.
+\end{itemize}
+
+
+\subsection{Directories and Paths}
+\underline{How does a terminal work?}
+
+Just like in your Finder or Explorer interface, when you are in a specific folder this corresponds to a \textbf{directory} in the terminal.
+The current directory in a terminal is called the \textbf{working directory}.
+
+A terminal will initially open to the home directory of your computer account.
+For example on a Mac,
+
+\vspace{5mm}
+\textit{/Users/$<$username$>$}
+\vspace{5mm}
+where username is the computer account name.
+
+Similarly, on a Windows it will look something like,
+
+\vspace{5mm}
+\textit{C:\textbackslash Users\textbackslash $<$username$>$}
+\vspace{5mm}
+where username is the computer account name.
+
+\textbf{Note to Windows users}: instructions use the forward slash convention moving forward. On windows in the Terminal you can use backwards and forwards slashes interchangeably. This is not true on Mac. 
+
+The directory represents the place in computer memory where the information is stored.
+The complete descrpition of where a directory or file on a computer is located is called a \textbf{path}.
+Note that paths are \textbf{case-sensitive}. 
+We will use paths and filenames to change directories, list contents of directories, and run Python programs. 
+
+\underline{If I cannot click in the terminal how do I change directories?}
+
+As a text-based interface, we need key stroke commands to move directories the way you would click through folders in Finder or Explorer.
+
+\begin{enumerate}
+\item \textit{pwd}: Stands for ``print working directory''. It tells you where you currently are on your computer. For example when you open the terminal, usually it is in the home folder. Test this out, type \textit{pwd} in the terminal and see what comes out. 
+\item \textit{ls}: Stands for ``list'' the files/folders in the current directory. 
+\item \textit{mkdir $<$ new folder name here $>$}: Stands for ``make directory''. When you type this command followed by a space and then the name of a new folder you want to create in your current working directory. 
+  \item \textit{cd $<$ type in a direcotry here $>$}: Stands for ``change directory''. When you type this command followed by a space, followed by the directory path you want to go to the Terminal directory will change. 
+\end{enumerate}
+
+\underline{Do you always need to know the exact path?}
+or can you navigate the Terminal like you do a point-and-click interface?
+
+\begin{center}
+  \begin{tabular}{| l | l | }
+    \hline
+    \textbf{Command} & \textbf{Explanation} \\ \hline
+    cd        & Set the current directory to your home directory  \\ \hline
+    cd \textasciitilde{}     & \shortstack[l]{Set the current directory to your home directory. \\ (The \textasciitilde{} is shorthand for your home directory)} \\  \hline
+    cd ..     & \shortstack[l]{Move up to the parent directory (or one folder up) from the \\ current working directory} \\ \hline
+    cd ../../ & \shortstack[l]{Move up to the parent of the parent directory (or two folders up)\\ from the current working directory} \\ \hline
+    cd blah   & \shortstack[l]{Move to the sub-directory blah (Note this must be a directory\\ in your current working directory)} \\ \hline
+    cd /Users/$<$username $>$/Desktop & Move to the Desktop directory given by the absolute path \\ \hline
+    cd - & Move to your last working directory \\ \hline
+\end{tabular}
+\end{center}
+
+
+\subsubsection{Additional Useful Terminal Commands}
+Beyond changing directories and looking at files in those directories there are many other helpful terminal commands. 
+
+For example
+\begin{itemize}
+\item \textit{mv $<$from$>$ $<$to$>$}: move a file from one location to another location. This includes just renaming it in the current directory. The mv command will remove the file in the old locaito nafter copying it to the new location.
+\item \textit{cp $<$from$>$ $<$to$>$}: copy a file to a new location or name
+\item \textit{rm $<$filename$>$}: remove the file (will not remove a directory). \textbf{WARNING:} This is not the same as dragging a file to the trash in Finder or Explorer. Once the file is removed there is no recovering the file.
+\item \textit{rm -r $<$directory$>$}: remove the directory and all the files and subdirectories in it.
+\item \textit{less $<$filename $>$}: scroll through a file
+\item \textit{cat $<$filename$>$}: send the file to standard output in the terminal
+\item \textit{echo ``a string''}: write the text within the string to standard output in the terminal 
+  \item \textit{touch $<$filename$>$}:updates the modification date on a file or creates an empty file if the named file does not exist. This can be useful in various situtations, like when you are learning to create, rename, and delete files using the terminal
+\end{itemize}
+
+\subsection{Terminal Tips and Tricks}
+There are some helpful features and best practices to use when learning the terminal
+\begin{itemize}
+\item Use \textit{pwd} and \textit{ls} often as you navigate through directories to see what directory you are in and what files are in the directory.
+\item You can hit return anywhere in a terminal line and it will execute the entire line no matter where the cursor is located. Note you cannot navigate in the line using a mouse, you have to use the arrow keys or other builtin shorthands or Command actions (See Table \ref{table:command_action})
+  \item Tab-Completion: you can type part of a name of a file or program, and then press the tab key to complete the filename as far as possible while the choice is unique. If two or more files are similarly named the terminal will output the options of files to continue with. 
+  \item Dragging a folder to change directories: While you are learning about changing directories it is possible to make folders in your Finder or Explorer windows and drag these folders to the terminal. Type cd + a space in the terminal and then drag a folder to the terminal. The absolute path of that folder will appear in the terminal. Hit enter to navigate to this location. 
+    \item The terminal has builtin manual pages also called man pages. If you forget what a particular terminal page might do you can type \textit{man pwd} and a manual page will come up detailing the complete functionality of the command (which has far more capability than we cover in this lab). To exit a man page type 'q'. 
+\end{itemize}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{| l | l | }
+    \hline
+    \textbf{Command} & \textbf{Explanation} \\ \hline
+    cntl-a & move the cursor to the start of the line \\ \hline
+    cntl-b & move the cursor back one position \\ \hline
+    cntl-c & kill the current process running in the terminal \\ \hline
+    cntl-d & delete the character under the cursor \\ \hline
+    cntl-e & move the cursor to the end of the current line \\ \hline
+    cntl-f & move the cursor forward one position \\ \hline
+    cntl-k & delete everything on the current line to the right of the cursor \\ \hline
+    cntl-l & clear the terminal screen \\ \hline
+    cntl-n & move forward in the terminal history \\ \hline
+    cntl-p & move backward in terminal history \\ \hline
+    cntl-z & \shortstack[l]{freeze the current process running in a termial. \\ You can put it in the background by typing \textit{bg} \\or put it in the foreground by typing \textit{fg}}\\ \hline
+  \end{tabular}
+  \caption{Command Actions}
+  \label{table:command_action}
+\end{table}
+
+
+
+\subsection{Writing First Python Program}
+In the terminal type:
+
+\vspace{5mm}
+  \textit{mkdir ES1093}
+  
+  \textit{cd ES1093}
+  
+  \textit{touch myFirstProgram.py}
+  
+\vspace{5mm}
+
+
+In \textbf{myFirstProgram.py}, type:
+\begin{lstlisting}[language=Python]
+print(``Hello World'')
+\end{lstlisting}
+
+In the terminal type:
+\vspace{5mm}
+
+\textit{\$ python myFirstProgram.py}
+
+\vspace{5mm}
+What is the output?
+
+\vspace{5mm}
+Congratulations! You have completed lab 0 and the setup for the rest of the semester! We will rely on this backbone for all labs and projets.
+
+
+\section{Acknowledgments}
+Section 2, 3, and 4 of these instructions are from Professor Oliver Layton and Professor Hannen Wolfe in the Colby College CS Department. Section 5 is a combination of the prior sources and including work from Professor Bruce Maxwell and Professor Stephanie Taylor in the Colby College CS Department. 
+Sources:
+\begin{itemize}
+\item \footnotesize{\url{https://cs.colby.edu/courses/S25/cs151/projects/00/Lab00Software.html}}
+\item \url{https://cs.colby.edu/courses/S25/cs151/projects/01/Lab01First-Python.html}
+\item \url{https://cs.colby.edu/courses/S20/cs152-labs/labs/lab01/}
+\item \url{https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal}
+\end{itemize}
+
+
+\end{document}

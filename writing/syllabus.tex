@@ -1,0 +1,370 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,euscript,graphicx}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}
+\usepackage{fancybox,color}
+\usepackage[footnotesize]{caption}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[top=0.9375in, right=0.9375in, left=0.9375in, bottom=0.9375in, centering]{geometry}
+\usepackage{bm}
+
+\usepackage{amsthm}
+
+
+% -- Loading the code block package:
+\usepackage{listings}
+% -- Basic formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{times}
+\setlength{\parindent}{8pt}
+\usepackage{indentfirst}
+% -- Defining colors:
+\usepackage[dvipsnames]{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% Definig a custom style:
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% -- Setting up the custom style:
+\lstset{style=mystyle}
+
+
+% IEEE uses Times Roman font, so we'll default to Times.
+% These three commands make up the entire times.sty package.
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+\newcommand{\squeeze}{\vspace{-0.1in}}
+\newcommand{\changed}[1]{\textcolor{blue}{#1}} %generates text in blue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\Large {\bf Syllabus for Introduction to Computer Science: Image and Sound}}  
+\end{center}
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\section{Course Description}
+Did you know, computers can be used to build and modify images and sound bytes? In this course, students with little to no prior computer experience will learn the foundations of computer science through projects focused on visual media and sound. This work will culminate in a final project consisting of an interactive display or exhibit. It will be helpful if you are interested in art and sound, but no prior experience is necessary. Students who successfully complete this course will have learned:
+\begin{enumerate}
+\item How to read a simple program and correctly describe the outcome, 
+\item how to take a problem statement and convert it into code, and 
+\item how basic computer memory works.
+\end{enumerate}
+In addition, students will gain new ways for conceptualizing and working with image and sound that they will be able to draw on in their creative and scholarly practice. While this is an introductory course, it is important to note that learning to program is like learning a new language. There is a time commitment to learning new syntax and understanding the language of computing. This course is taught in Python, and students will be evaluated on weekly check-ins and projects. This course, or the equivalent, is required for many further courses in computer science and related areas. 
+
+Level: Introductory. 
+Prerequisites: none. 
+Lab Fee: none. 
+
+
+\subsection{Who / where / when}
+\begin{itemize}
+\item \textbf{Instructor}: Victoria Edwards
+\item \textbf{Pronouns}: she/her/hers
+\item \textbf{My office}: 2nd Floor Annex in Turrets
+\item \textbf{Email}: vedwards@coa.edu
+
+  Note: the best way to get help with project challenges is via the Discord Server or at Office hours. Please use email for various course logistic issues or to schedule a meeting directly. 
+\item \textbf{Meeting Times}:
+  \begin{itemize}
+  \item Lecture A: Tuesday \& Friday -- 1035 - 1200
+  \item Lab: Wednesday -- 0900 - 1025 
+  \end{itemize}
+\item \textbf{Lecture Location}: CHE 103
+\item \textbf{Class Discord Server}: \url{https://discord.gg/ryvtgt6S}
+\item \textbf{Help Sessions}: TBD, will be announced in class 
+\item \textbf{Individual Meetings:} By appointment
+\end{itemize}
+
+\section{Course Information}
+
+
+\subsection{Projects}
+The bulk of the out of class work will be done in the form of projects.
+Projects are the equivalent of an essay in a writing class or a problem set in a math class.
+Each week during lab the next project will be released.
+Projects are intended to give you real world programming experiences that put what we are learning in class into practice.
+You will have 1.5 weeks to complete a project.
+There will be a brief period where you will have two projects assigned at the same time.
+Please start projects early and be proactive in seeking help. 
+
+\textbf{Wednesday}: Project released during lab.
+
+\textbf{2nd Friday After Lab}: Project due at 11:59PM (2359). For each project you will submit all necessary code to complete the project and a written report. 
+
+\textbf{Grading:}
+
+Projects are graded out of 30 points, exact rubrics will be provided on the Google Assignment. 
+\begin{itemize}
+\item 20 points base project
+\item 6 points for report
+\item 1 point for submitting a complete project by the due date
+\item 3 points for extensions  
+\end{itemize}
+
+\textbf{What is an Extension?}
+Computer science is a creative discipline as much as a quantitative one.
+In addition, I recognize that you are busy and some weeks you may just need to get the basics of the assignment finished.
+To this end, if you submit the base project and complete report on time you get 27/30 points.
+To get the remaining three points you will have the opportunity to complete extensions.
+
+Think of extensions as a way to go beyond and explore aspects of computer programming that interest you.
+Each assignment will have suggestions for extensions but you are also encouraged to consider things within the project framework that interest you.
+This is how you will start to grow as a programmer and provides you the capacity to personalize this course to your own interests. 
+We will discuss extensions in greater detail during Lab 1. 
+
+\textbf{Late Policy:}
+\begin{itemize}
+\item On Time: Assignment out of 30 points
+\item 1 week late: Assignment will receive a max of a 26/30 and no extensions will be considered. If the assignment is still incomplete 1 week after the due date please turn it in for partial credit
+\item $>$ 1 week late: Assignments will not be accepted
+\item One 3 Day Extension no questions asked: Each student is allowed one free three-day extension that can be used when you need it over the course of the semester (excluding the final project). This means you may choose to hand in a project on a Monday after the Friday deadline with no penalty. Please fill out the form on google classroom to let me know you are taking your 3-Day extension for this project.
+\end{itemize}
+
+I am providing a late policy here as a starting point. 
+Since this is the first time this course is being taught at COA, we will collectively consider what is working for us and how to modify this policy to better suit our community needs. 
+
+\subsection{Final Project}
+There will be a guided final project where there are two options to pursue.
+These options will allow you the students to explore various aspects of computer science that go beyond.
+The final Project presentation will be Monday November 17, 2025 in CHE 103 during your assigned class section. 
+
+More details about the final project will be released in Week 7. 
+
+\subsection{Check-Ins}
+Every Thursday there will be an in class Check-In which is a 10-15min exercise that will test your comprehension of the material covered in lecture and labs so far.
+These activities are pen and paper assignments, no use of external electronic sources will be allowed.
+
+The lowest Check-In score will be dropped.
+This means you can miss 1 Thursday class with no consequences. 
+
+\textbf{What is the point of a Check-In?}
+Check-Ins are a way for both of us to access what material is making sense and what material we should spend more time with.
+As a relatively low portion of the grade, the goal is to catch comprehension issues early and address them in lecture and lab.
+
+\textbf{How do I study for a Check-In?}
+By coming to class and lab you will see all the material you will need for a check-in.
+I will also provide practice problems on Monday on the google classroom which will provide you with examples of the types of problems you will see on the Check-In.
+Note that practice problems are optional and will not be turned in.
+For specific questions or answers to practice problems please come to a help session or schedule an appointment with me. 
+
+\subsection{Final Exam}
+There will be a 1 hour final exam that will consist of 4 Check-In style assignments.
+The exam will take place on Nov 20, 2025 in CHE 103 during your assigned class section. 
+
+\textbf{Why is there going to be an exam?}
+One of the goals for this course is to help students build mental models of programming and problem solving skills that go beyond any individual programming language.
+The hope is that with practice you can apply these skills to learn any programming language that may be relevant to your problem.
+
+An exam allows both you and me to evaluate how well you understand the core foundations of computer science that will help you achieve these objectives.
+In addition, this is an opportunity to highlight what you know outside of the use of generative AI tools.
+Finally, should you find yourself interviewing for a position that requires a technical interview an exam will help provide you with an idea of what skills potential employers might look for. 
+
+\subsection{Class Participation \& Attendance}
+It is strongly encouraged that you come to class and lab.
+It does not matter which lab section you attend but it will be critical to your success in the course to attend one of the lab sections on Wednesday.
+If you are missing a lab please coordinate with me about how to stay on top of the lab and project assignments. 
+
+This course will use a Discord Server for extra virtual assistance.
+This interactive community building tool will help students get access to help from one another as well as myself while not physically at office hours.
+Guidelines and details about the Discord Server are in the Google Classroom. 
+
+\subsection{Grading}
+This is the first time this version of this course is being taught.
+These percentages are estimates based on what I anticipate us getting through this semester.
+However, should we cover less or more material than anticipated, I will update this framework and communicate that clearly with the class.
+
+\begin{itemize}
+\item 6 Projects  40\%
+  \item 1 Final Project 15\%
+\item Check-Ins 8\%
+\item Final Exam 20 \%
+  \item Participation (In Class and on Discord) 15\%
+\end{itemize}
+
+Of note: Projects are a critical part of this course and it is important that you do this work and turn it in by the deadlines. 
+
+\subsection{Materials}
+This course will be taught in Python.
+We will use Microsoft Visual Studio (VS Code) a free text editor that we will install on day one in class together.
+It is expected that each student has access to a computer which they can install software on.
+If a student does not have a computing system please contact me ASAP. 
+
+Computer Science relies heavily on online sources.
+Helpful resources for this course are:
+\begin{itemize}
+\item Think Python Free online resources:
+
+  \url{https://allendowney.github.io/ThinkPython/}
+
+\item Python Getting Started:
+
+  \url{https://www.python.org/about/gettingstarted/}
+
+\item How to think like a computer scientist:
+
+  \url{https://openbookproject.net/thinkcs/python/english2e/}
+
+\end{itemize}
+
+There are also books set aside in the library.
+\begin{itemize}
+\item Python Programming: An Introduction to Computer Science, Fourth Edition (4th Addition), John M. Zelle
+\item Think Python: How to Think Like a Computer Scientist (3rd Addition), Allen B. Downey  
+\end{itemize}
+
+
+\section{Course Policies}
+
+\subsection{Use of electronics in class}
+Smartphones and smart watches are not allowed during Check-Ins and exams.
+In general during lab and lecture, these tools are discouraged unless part of an academic accommodation.
+Please contact me if there is a concern about this policy. 
+
+\subsection{Academic Integrity \& Collaboration}
+I am required to remind you that: ``By enrolling in an academic institution, a student is subscribing to common standards of academic honesty.
+Any cheating, plagiarism, falsifying or fabricating of data is a breach of such standards.
+A student must make it their responsibility to not use words or works of others without proper acknowledgment.
+Plagiarism is unacceptable and evidence of such activity is reported to the academic dean or their designee.
+Two violations of academic integrity are grounds for dismissal from the college.
+Students should request in-class discussions of such questions when complex issues of ethical scholarship arise."
+
+Collaboration is encouraged in computer science.
+You should talk with your fellow classmates about projects and what we are learning in class.
+In addition, as a part of class participation you should help each other troubleshoot and debug project code. 
+A good rule of thumb is to discuss projects with classmates, but when it is time to write code each student should go to their separate computers.
+Another guideline is to only submit code that you fully understand. 
+Remember copying code from a classmate is considered cheating.
+
+It is expected that in both code and reports you acknowledge the people and sources you work with.
+Sometimes, it is necessary to show someone code to help explain a solution.
+If you look over a classmates code it is important to credit this individual.
+As you will see this semester I am relying heavily on materials from outside sources for this course. 
+I have attempted to provide examples of acknowledgments in all assignments and materials I use.
+
+\subsection{Generative AI}
+This policy is subject to change and we will work together as a community to figure out guidelines that match our needs and learning objectives.
+
+\begin{itemize}
+\item You are not allowed to use Co-Pilot in VS Code, this is an AI coding assistant tool and if I see it installed on your computer this is considered academic dishonesty.
+\item In each project report that you submit, you are required to write an AI usage statement. 
+  \begin{itemize}
+    \item   If you did not use Generative AI tools then you will simply write that you did not use these tools to aid you in your project. 
+    \item If you did use Generative AI tools like Google Gemini or ChatGPT you are required to acknowledge this in your report. In addition, each project will have additional guidelines about added work and testing you are required to perform for this code to be graded. Please consult the specific project guidelines for what is required.   
+  \end{itemize}
+\item All report text should be your own.
+\end{itemize}
+
+I want to help you learn how to think computationally.
+This is not mutually exclusive of the use of generative AI tools, however, if you do not understand what the generative AI tool outputs or if you cannot adequately explain and test the output then you are not meeting the learning objectives of this class.
+Together I would like to evolve this policy to equip you to not only be able to write code but to use all the tools available to you.
+
+\subsection{Keys to Success}
+\begin{enumerate}
+\item Come to lab ready to work on the next weeks project even if your current project is not finished.
+  \item Stay on top of the projects. The course will continue to move forward and getting behind in the assignments makes it hard to keep up with the course material. If you are having issues staying on top of the work please come and talk to me early on. 
+\item Participate in class and on Discord. CS is inherently collaborative and we all grow when we work together to solve challenges.
+\item Follow the 30 minute rule: ``If you have been stuck on a problem, such as a bug, for more than 30 minutes and have made no progress, despite your best efforts, please stop and get help. Email me  or consult a peer. If you don't get an answer immediately, do something else for a while. Please do not waste your time on one problem.''
+\item Back up your work somewhere using google drive or for those interested in more advanced tools look into github version control (you have access to free github accounts as a college student!).
+\end{enumerate}
+
+\subsection{Title IX Statement}
+COA is committed to fostering a safe, respectful, and inclusive campus where all community
+members have equal access to education and employment.
+We will not tolerate sexual harassment or gender-based discrimination of any kind.
+
+As a faculty member, I am considered a “Responsible Employee.”
+This means I am required to share any disclosures of sexual or gender-based misconduct with the Title IX Coordinator—even if the incident occurred before your time at COA.
+The purpose of this requirement is to ensure that anyone who has experienced sexual misconduct is offered support, information about their rights, and access to available resources. Please know that you are not required to respond to outreach, and a disclosure does not automatically result in a report to law enforcement.
+
+For more information about Title IX, COA’s policies, and available resources, please visit:
+\url{coa.edu/human-resources/title-ix}.
+
+If you would like to ask questions or explore support options, you are encouraged to contact
+COA’s Title IX Coordinator, Puranjot Kaur, at \textcolor{blue}{\texttt{pkaur@coa.edu}}.
+Speaking with the Title IX Coordinator does not automatically initiate a college resolution process.
+Much of her work focuses on providing supportive measures to help you continue to fully participate in COA’s programs and activities.
+
+\subsection{Library Resources}
+Thorndike Library offers many resources and services that can assist you in your academic endeavors, including individualized research support and access to resources beyond COA.  Study spaces are also available.  The library is open 7 days/week.  Remote access to the research databases is available 24/7.  Contact library@coa.edu or visit the library website for details.
+
+\subsection{Writing Center Resources}
+The Writing Center provides one-on-one writing support to all COA students.
+We offer feedback and strategies to help you with all kinds of projects—papers, presentations, proposals, cover letters, and more—at any stage of your process.
+One common misconception is that a writing center only corrects grammar.
+Another is that only “bad writers” see tutors.
+Both are untrue.
+Beyond the sentence level, tutors can help you brainstorm, navigate a new genre, incorporate feedback, and learn new strategies for moving projects forward.
+To work with tutors, drop in to see us in Arts \& Sciences next to the student mailboxes, or make an appointment online (\url{https://www.coa.edu/writing-program/writing-center/}).
+Instructors can reach out to obtain information about incorporating Writing Center services into their courses.
+For other questions, contact Valeria Tsygankova, Director of the Writing Center (\textcolor{blue}{\texttt{vtsygankova@coa.edu}}), or Su Yin Khor, Director of the Writing Program (\textcolor{blue}{\texttt{skhor@coa.edu}}).
+
+\subsection{Time Commitment}
+I am required to say that: ``You should expect to spend 150 hours of academically engaged time on this course, or 15 hours per week. In addition to 4.5 hours per week in class or discussion section, in a typical week you'll spend 2 hour preparing for class and 8.5 hours attending help sessions and completing projects.''
+
+\section{A Rough Schedule Outline}
+All content covered week to week is subject to change.
+These are the high level themes that we will cover and there is additional material that we will also discuss.
+
+\begin{itemize}
+\item Week 0: Introductions \& Computer Setup
+\item Week 1: Functions, Symbol Tables, and Generating Data
+\item Week 2: Loops, Conditionals, and Extracting Data
+\item Week 3: Lists, More Conditionals, and Manipulating Data
+\item Week 4: More Lists, Copy, and Population Variability
+\item Week 5: Modular Design, Dictionaries, and Building Simulations
+\item Week 6: More Modular Design and Optimization with Simulation
+\item Week 7: Basics of Object Oriented Design, Final Project Details, and Faculty Retreat (No lab and no class on Thursday)
+\item Week 8: TBD, and work on final project
+\item Week 9: Guest Lectures and work on final project
+\item Week 10: Final Project Presentations, Review Session during lab, and Final Exam 
+\end{itemize}
+
+\section{Acknowledgment}
+This syllabus heavily relies on several sources including:
+\begin{itemize}
+\item the CS 151 course offered at Colby College.
+
+  \footnotesize{\url{https://cs.colby.edu/courses/F25/cs151a/#description}}
+
+\item \normalsize{Dave Feldman's Syllabus}
+
+  \footnotesize{\url{https://dpfeldman.github.io/Teaching/Energy.F25/}}
+
+  
+\item \normalsize{Kourtney Collum's Syllabus on Sustainable Food Systems}
+\end{itemize}
+
+\end{document}
