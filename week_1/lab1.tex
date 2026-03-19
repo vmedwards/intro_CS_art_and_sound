@@ -68,7 +68,7 @@
 \begin{document}
 
 \begin{center}
-  {\Large {\bf Lab 1: Setting up your workstation}}
+  {\Large {\bf Lab 1: Turtle Graphics and Terminal Commands}}
   
 \end{center}
 
@@ -77,166 +77,15 @@
 \vspace{5pt}
 
 \section{Summary}
-For our first lab we will set up your computer to run the necessary software. 
-This requires installing Python and installing Microsoft Visual Studio Code.
-I have included instructions for both the Mac OS and Windows. 
-At the end of this lab you should be able to open a text editor and run a basic python program in the Terminal.
-
-The assignment instructions come directly from the Introduction to Computer Science Course instructions from the Colby College Computer Science Department (CS 151 and CS 152).
-Direct credit and acknowledgements of sources are at the end of this document. 
-
-\section{Installing Python}
-Python is an interpreted programming language that is commonly used in introduction to computer science classes due to the highly readable syntax.
-It is free to install and runs on many different operating systems. 
-
-\subsection{macOS}
-Installation Instructions: 
-\begin{enumerate}
-\item Download Python 3.13.7 at \url{https://www.python.org/downloads/macos/}
-\item Open the downloaded file called \textit{python-3.13.7-macos11.pkg} which should be in the Downloads folder. Note if you do not see the \textit{.pkg} this is fine. 
-\item Double click on the file and a pop-up window will appear, follow the steps clicking Continue button 3 times and Agree when prompted
-\item Click continue one more time
-\item Click install when prompted
-\item You will enter your computer password and Python will install (this might take a minute or so be patient). After this process finishes, close the installer and delete the file in the Downloads folder.
-\end{enumerate}
-
-Check that it is installed correctly:
-\begin{enumerate}
-\item Open a Terminal, this can be found in the Applications/Utilities folder in Finder or searching for it using Spotlight (Cmd+spacebar, type Terminal and then press Enter)
-\item A small black window will open. Type: \texttt{python3 --version} and hit Enter. It should return Python 3.13.7, which means things are installed correctly!
-\end{enumerate}
-
-We now want to make it so that when you type the command python it works instead of needing to type python3.
-In the Terminal, do the following:
-\begin{enumerate}
-\item echo \$SHELL
-\item If the output is bash:
-  \begin{enumerate}
-  \item \texttt{sudo nano \textasciitilde{}/.bash\textunderscore profile}
-  \item Type your computer password into the terminal
-  \item Add the following line: \texttt{alias python=python3}
-  \item Add the following line: \texttt{alias pip=pip3}
-  \item Save file by hitting Ctrl + x and hitting Y and then Enter (or return) when prompted to save
-  \item Close out of the Terminal
-  \end{enumerate}
-\item If the output is zsh:
-  \begin{enumerate}
-  \item \texttt{sudo nano \textasciitilde{}/.zshrc}
-    \item Type your password when prompted
-  \item Add the following line: \texttt{alias python=python3}
-  \item Add the following line: \texttt{alias pip=pip3}
-  \item Save file by hitting Ctrl + x and hitting Y and then Enter (or return) when prompted to save
-  \item A new bar will appear at the bottom with TAB hit enter and everything should save.
-  \item Close out of the Terminal
-  \end{enumerate}
-\item Test that this is working by opening a new Terminal and typing \texttt{python --version}
-\end{enumerate}
-
-
-\subsection{Windows}
-Installation Instructions: 
-\begin{enumerate}
-\item Download Windows installer(64-bit) at
-
-  \url{https://www.python.org/downloads/windows/}
-
-\item Run the installer file called \textit{python-3.13.7-amd64.exe}
-\item An installation window will pop up, check the last box at the bottom of the window: ``Add Python 3.13.7 to PATH'' and ``Use admin privileges when installing py.exe''
-\item Click ``Install Now'' at the top.
-  \item Hit close button once the successful install button appears.
-\end{enumerate}
-
-Check that it is installed correctly: 
-\begin{enumerate}
-\item Press WinKey + r to open the Run box.
-\item Type cmd into the box and press Enter
-  \item Type \texttt{python --version}, then press Enter. It should print Python 3.13.7 which means things are installed correctly
-\end{enumerate}
-
-
-\section{Instling Microsoft Visual Studio Code}
-For all projects we are going to write code in a text editor. While there are a wide range of text editors out there, I recommend using Microscoft Visual Studio Code (VS Code for short).
-This editor has built in features we will use for all the assignments.
-
-\subsection{macOS}
-Installation Instructions: 
-\begin{enumerate}
-\item Download Microscoft VS Code at \url{https://code.visualstudio.com/Download}. Select the Mac OS option.
-\item You should see a file with a blue icon called Visual Studio Code in your Downloads folder. Drag it into your Applications folder
-\item Open VS Code and create a new file called \textbf{test.py}. To make a new file go to the top bar of the application click File $\rightarrow$ New File, a pop up window will appear and you will be prompted to name the new file.
-  \item Once you have made your new file, you should see a pop-up in bottom right corner asking you about installing a Python extension. Click Install
-\item VS Code should install it, then you should see Python at the bottom right corner of the screen
-\item If a drop-down menu should appear with some options at the top. Then Click the entry that says 3.13.7 followed by /usr/local/bin/python3
-\item Dismiss the pop-up window that continually appears about ``Linter pylint''. Click Do not show again.
-\end{enumerate}
-
-\subsection{Windows}
-Installation Instructions: 
-\begin{enumerate}
-\item Download Microscoft VS Code at \url{https://code.visualstudio.com/Download}. Select the Windows option
-\item Dobule-click the installer file to install it on your computer
-\item To integrate Python with VS Code, open and create a new file called \textbf{test.py}. To make a new file go to the top bar of the application click File $\rightarrow$ New File, a pop up window will appear and you will be prompted to name the new file.
-\item A pop-up in VS code about a Python extension being recommended will appear. Click Install
-\item You should see ``Python 3.13.7'' in the bottom right corner of the editor which means you are ready to go
-\end{enumerate}
-
-We will now install an additional package necessary on Windows to do the assignments this semester.
-\begin{enumerate}
-\item Download Git from \url{https://git-scm.com/download/win}
-\item Double click and install Git, this will ask you a series of questions agree to the default settings and install.
-\item Open Visual Studio Code and press (Ctrl + \textasciigrave) where  \textasciigrave is the same key as \textasciitilde{}.
-\item Open the command palette using (Ctrl + Shift + p)
-\item Type - Select Default Profile
-\item Select Git Bash from the options
-\item Close Visual Studio
-\item Reopen Visual Studio and you should see bash in the right bottom corner next to the terminal
-\end{enumerate}
-These instructions came from:
-\url{https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal}
-
-\section{Show file extensions}
-To ensure you can see which files are code files, we need to make sure the proper settings are setup.
-
-\subsection{macOS}
-\begin{enumerate}
-\item Go to the Finder preferences. (This is found on the top left corner of the screen and click preferences)
-\item Click Advanced
-\item Make sure \textit{Show all filename extensions} is checked.
-\end{enumerate}
-
-
-\subsection{Windows}
-\begin{enumerate}
-\item Open up File Explorer 
-\item Go to View
- \item Click \textit{File name extensions} 
-\end{enumerate}
-
-In both cases you should see \textit{test.py} with the .py showing in your Finder or Explorer window. 
-
-\section{Installing Turtle Graphics and Pysonic}
-In VS Code, open a terminal. The shorthand is Ctrl + \textasciigrave where  \textasciigrave is the same key as \textasciitilde{}.
-
-If you do not want to use the short hand then: 
-\begin{itemize}
-\item \textbf{Mac} Go to the Terminal menu on top bar and select New Terminal
-\item \textbf{Windows} Go to the 3 dots (...) on the top bar, select Terminal, New Terminal
-\end{itemize}
-In the next section we will go over the details of what a terminal is and why we should use it etc. 
-In the terminal, on both operating systems do the following:
-
-\vspace{5mm}
-
-\textit{ python --version}
-
-\textit{pip --version}
-
-\textit{pip install matplotlib}
-
-\vspace{5mm}
+In this lab, we will introduce basic terminal functionality and Turtle Graphics.
 
 \section{Introduction to the Terminal}
-We will now go over what a terminal is, how to use it, and why you should care. 
+We will go over what a terminal is, how to use it, and why you should care.
+
+\subsection{OPen the Terminal}
+Open the VS code text editor.
+
+Open the terminal by either clicking \texttt{Ctrl + `} or clicking \texttt{Terminal} in the menu and selecting \texttt{New Terminal}. Note: In Windows this is at the top of the window and in Mac this is in the menu bar. If you do not see it, then try selecting the 3 dots in the menu bar and then selecting Terminal $\rightarrow$ New Terminal. 
 
 \subsection{What is the Terminal?}
 The terminal is a text-based interface to everything on your computer that allows you to manipulate files, execute computer programs, and open documents.
@@ -247,7 +96,7 @@ Note that historically Windows uses a command prompt terminal interface and Mac 
 There are differences in the commands used in these systems and for consistency we have set up everyone's VS Code to use a bash style interface. 
 
 
-\underline{Why you should care?}
+\subsubsection{Why you should care?}
 \begin{itemize}
 \item Terminal is a long standing tool in computing that has well established tools that are not changing or going away. 
 \item There are easy ways to do tasks with lots of files, \textit{e.g.}, renaming 1000 files with a single line in the terminal.
@@ -256,7 +105,7 @@ There are differences in the commands used in these systems and for consistency 
 
 
 \subsection{Directories and Paths}
-\underline{How does a terminal work?}
+\subsubsection{How does a terminal work?}
 
 Just like in your Finder or Explorer interface, when you are in a specific folder this corresponds to a \textbf{directory} in the terminal.
 The current directory in a terminal is called the \textbf{working directory}.
@@ -283,7 +132,7 @@ The complete descrpition of where a directory or file on a computer is located i
 Note that paths are \textbf{case-sensitive}. 
 We will use paths and filenames to change directories, list contents of directories, and run Python programs. 
 
-\underline{If I cannot click in the terminal how do I change directories?}
+\subsubsection{If I cannot click in the terminal how do I change directories?}
 
 As a text-based interface, we need key stroke commands to move directories the way you would click through folders in Finder or Explorer.
 
@@ -294,8 +143,8 @@ As a text-based interface, we need key stroke commands to move directories the w
   \item \textit{cd $<$ type in a direcotry here $>$}: Stands for ``change directory''. When you type this command followed by a space, followed by the directory path you want to go to the Terminal directory will change. 
 \end{enumerate}
 
-\underline{Do you always need to know the exact path?}
-or can you navigate the Terminal like you do a point-and-click interface?
+\subsubsection{Do you always need to know the exact path?}
+Can you instead navigate the Terminal like you do a point-and-click interface?
 
 \begin{center}
   \begin{tabular}{| l | l | }
@@ -358,46 +207,137 @@ There are some helpful features and best practices to use when learning the term
   \label{table:command_action}
 \end{table}
 
+\subsection{Create a lab1 folder inside of your ES1098 folder}
+To showcase your understanding of this section, you will now create a lab1 folder and move into that directory. 
+\begin{itemize}
+  \item open a terminal in VS Code. 
+  \item Navigate to your ES1098 folder from lab0, use \texttt{ls}, \texttt{cd}, and \texttt{pwd} to help you find this directory
+  \item Once you are in this directory you should see: \texttt{/Users/<computername>/ES1098} when you type \texttt{pwd}.
+  \item Create a new folder by typing \texttt{mkdir lab1}
+  \item Move into that folder by typing \texttt{cd lab1}
+  \item Confirm your current directory by typing \texttt{pwd}.
+\end{itemize}
 
+\section{Turtle Graphics}
+Python is a powerful interpreted language that can do many different things. Last fall we learned the same concepts you will this spring but did assignments that mainpulated and created data. This spring we will focus on art and sound for our assignments.
+To this end, we will use turtle graphics to draw images in our computers.
+You can image that there is a turtle holding a paint brush on your screen and when given commands the turtle will move leaving paint behind as it goes.
+The commands you will need for this lab include: 
 
-\subsection{Writing First Python Program}
-In the terminal type:
+\begin{itemize}
+\item \texttt{forawrd(x)} - move forward \texttt{x} pixels
+\item \texttt{backward(x)} - move backward \texttt{x} pixels
+\item \texttt{left(a)} - turn left \texttt{a} degrees
+\item \texttt{right(a)} - turn right \texttt{a} degrees
+\item \texttt{up()} - pick up the pen (don't draw when the turtle moves)
+\item \texttt{down()} - put down the pen down (draw when the turtle moves)
+\end{itemize}
 
-\vspace{5mm}
-  \textit{mkdir ES1093}
-  
-  \textit{cd ES1093}
-  
-  \textit{touch myFirstProgram.py}
-  
-\vspace{5mm}
+For more turtle details consult the documentation:
 
+\url{https://docs.python.org/3/library/turtle.html}
 
-In \textbf{myFirstProgram.py}, type:
+\subsection{Make a new python program}
+You cannot write code in Microsoft or Google Docs. Instead you write code in a texteditor that removes fancy fonts and other formatting features.
+
+\begin{itemize}
+\item Open VS Code
+  \item We will create a file called \texttt{hexagon.py}. 
+  \item Create a new file, either using File $\rightarrow$ new file, For Mac: \texttt{Cmd + N}. For Windows: \texttt{Ctrl + N}. Or from the terminal type \texttt{code hexagon.py}.
+  \item At the top of every file from now on you will include a header that is not read by the python interpreter but is useful for grading. Please include the following in your file:
 \begin{lstlisting}[language=Python]
-print(``Hello World'')
-\end{lstlisting}
+"""
+    Author: <YOUR NAME>
+    Date: <TODAYS DATE>    
+    Purpose: What your file does
+"""\end{lstlisting}
+\item The first line of code will import turtle graphics:
+  \begin{lstlisting}[language=Python]
+from turtle import * \end{lstlisting}
+\item The last line will be
+    \begin{lstlisting}[language=Python]
+exitonclick() \end{lstlisting}
+    This will keep the turtle window open until you click on the window that pops up
+  \item Save your file \texttt{Cmd + S} for MAC or \texttt{Ctrl + S} for Windows. If prompted supply the name \texttt{hexagon.py}. The \texttt{.py} tells your computer that you are writing Python code. 
+  \item Using the \texttt{right()} and \texttt{forward()} commands draw a hexagon. One line of code will go on each line between the import and exitonclick() commands.
+  \item To run your program you will type in your terminal:
+    \vspace{5mm}
+    \textit{python hexagon.py}
+    \vspace{5mm}
 
-In the terminal type:
-\vspace{5mm}
+  \item If something does not work, before asking a question make sure to save your file and run it again in the terminal.
+  \item You should not move on until you see a hexagon on the screen.
+\end{itemize}
 
-\textit{\$ python myFirstProgram.py}
+\subsubsection{Things didn't work, what do I do?}
+In computer science, when things do not work as you intend there is most likely a bug in your code.
+Some bugs are syntax bugs meaning that you have an issue with how your code is written and it cannot be interpreted by the python interpreter.
+Some bugs are logic bugs meaning that your code will run because nothing is wrong with the syntax but it is not doing what you wanted it to do.
 
-\vspace{5mm}
-What is the output?
+If your code from above is not working here are some things to try / consider:
+\begin{itemize}
+\item Did you get an error in your terminal? Error messages are very specific in the terminal and often can point you to the problem and a potential solution. Check that everything is spelled correctly, that all parathensis are closed, and that there are no spaces or indentations before any command. (These are syntax errors)
+\item Are you seeing lines on the screen but it is not the shape that you want? (This is a logic bug). Consider this, how many sides are in a hexagon? Remember from geometry that the sum of all exterior angles is 360 degrees. Using this information, how can you determine the number of forward and right commands you need? 
+\end{itemize}
 
-\vspace{5mm}
-Congratulations! You have completed lab 0 and the setup for the rest of the semester! We will rely on this backbone for all labs and projets.
+To help a bit more here is an example of an L shape.
+\begin{lstlisting}[language=Python]
+"""
+  Author: Victoria Edwards
+  Date: 03/18/2026
+  Purpose: Example for lab 1
+"""
+from trutle import *
+
+forward(100)
+right(90)
+forward(50)
+
+exitonclick() \end{lstlisting}
+
+\subsubsection{Why is \texttt{exitonclick()} the last command?}
+Comment out \texttt{exitonclick()} using the pound key (\#) before the line of code.
+
+\begin{itemize}
+  \item What happens?
+  \item Why do you need this line of code at the end of the file? 
+\end{itemize}
+
+\section{Submission}
+For each project you will include a brief written report along with your code files.
+We are going to go over the submission procedure now as a class. 
+
+\subsection{Report}
+Each report consists of:
+\begin{enumerate}
+\item Header at the top of the page with your name, date and class
+\item A title that describes the content of the report, for example, ``Victoria Edwards' ES 1098 Lab 1: My Hexagon''. 
+\item Abstract: A one paragraph summary of the project
+\item Results: Images showing what you created alongside a description of what each image is and how you designed / created it with code.
+\item Conclusion: A brief description (1-3 sentences) of what you learned.
+\item AI Usage Statement: A statement on if you used AI on this project. Reflection on how you used AI for the project including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorparated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violatoin of the academic integrity policy.
+\item Acknowledgments: A list of websites that you used and people you worked with including TAs and professors.
+\end{enumerate}
+
+You will create a google doc attached to the assignment in google classroom and fill it in with this material for lab 1. 
+
+\subsection{Code submission}
+Each week you need to include all code that is necessary to create the results shown in your report.
+Please do not delete code, instead comment code out as necessary.
+If you have results in your report and there is no corresponding code I have no way of knowing where you got hte result from.
+
+In google classroom, upload your \texttt{hexagon.py} file.
+
+Remember to submit your lab project. 
 
 
 \section{Acknowledgments}
-Section 2, 3, and 4 of these instructions are from Professor Oliver Layton and Professor Hannen Wolfe in the Colby College CS Department. Section 5 is a combination of the prior sources and including work from Professor Bruce Maxwell and Professor Stephanie Taylor in the Colby College CS Department. 
+Section 2, 3, and 4 of these instructions are from Professor Oliver Layton and Professor Hannen Wolfe in the Colby College CS Department. 
 Sources:
 \begin{itemize}
 \item \footnotesize{\url{https://cs.colby.edu/courses/S25/cs151/projects/00/Lab00Software.html}}
 \item \url{https://cs.colby.edu/courses/S25/cs151/projects/01/Lab01First-Python.html}
-\item \url{https://cs.colby.edu/courses/S20/cs152-labs/labs/lab01/}
-\item \url{https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal}
+\item \footnotesize{\url{https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal}}
 \end{itemize}
 
 

@@ -1,0 +1,281 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,euscript,graphicx}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}
+\usepackage{fancybox,color}
+\usepackage[footnotesize]{caption}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[top=0.9375in, right=0.9375in, left=0.9375in, bottom=0.9375in, centering]{geometry}
+\usepackage{bm}
+
+\usepackage{amsthm}
+
+
+% -- Loading the code block package:
+\usepackage{listings}
+% -- Basic formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{times}
+\setlength{\parindent}{8pt}
+\usepackage{indentfirst}
+% -- Defining colors:
+\usepackage[dvipsnames]{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% Definig a custom style:
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% -- Setting up the custom style:
+\lstset{style=mystyle}
+
+
+% IEEE uses Times Roman font, so we'll default to Times.
+% These three commands make up the entire times.sty package.
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+\newcommand{\squeeze}{\vspace{-0.1in}}
+\newcommand{\changed}[1]{\textcolor{blue}{#1}} %generates text in blue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\Large {\bf Lab 0: Setting up your workstation}}
+  
+\end{center}
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\section{Summary}
+For our first lab we will set up your computer to run the necessary software. 
+This requires installing Python and installing Microsoft Visual Studio Code.
+I have included instructions for both the Mac OS and Windows. 
+At the end of this lab you should be able to open a text editor and run a basic python program in the Terminal.
+
+The assignment instructions come directly from the Introduction to Computer Science Course instructions from the Colby College Computer Science Department (CS 151 and CS 152).
+Direct credit and acknowledgements of sources are at the end of this document. 
+
+\section{Installing Python}
+Python is an interpreted programming language that is commonly used in introduction to computer science classes due to the highly readable syntax.
+It is free to install and runs on many different operating systems. 
+
+\subsection{macOS}
+Installation Instructions: 
+\begin{enumerate}
+\item Download Python 3.13.7 at \url{https://www.python.org/downloads/macos/}
+\item Open the downloaded file called \textit{python-3.13.7-macos11.pkg} which should be in the Downloads folder. Note if you do not see the \textit{.pkg} this is fine. 
+\item Double click on the file and a pop-up window will appear, follow the steps clicking Continue button 3 times and Agree when prompted
+\item Click continue one more time
+\item Click install when prompted
+\item You will enter your computer password and Python will install (this might take a minute or so be patient). After this process finishes, close the installer and delete the file in the Downloads folder.
+\end{enumerate}
+
+Check that it is installed correctly:
+\begin{enumerate}
+\item Open a Terminal, this can be found in the Applications/Utilities folder in Finder or searching for it using Spotlight (Cmd+spacebar, type Terminal and then press Enter)
+\item A small black window will open. Type: \texttt{python3 --version} and hit Enter. It should return Python 3.13.7, which means things are installed correctly!
+\end{enumerate}
+
+We now want to make it so that when you type the command python it works instead of needing to type python3.
+In the Terminal, do the following:
+\begin{enumerate}
+\item echo \$SHELL
+\item If the output is bash:
+  \begin{enumerate}
+  \item \texttt{sudo nano \textasciitilde{}/.bash\textunderscore profile}
+  \item Type your computer password into the terminal
+  \item Add the following line: \texttt{alias python=python3}
+  \item Add the following line: \texttt{alias pip=pip3}
+  \item Save file by hitting Ctrl + x and hitting Y and then Enter (or return) when prompted to save
+  \item Close out of the Terminal
+  \end{enumerate}
+\item If the output is zsh:
+  \begin{enumerate}
+  \item \texttt{sudo nano \textasciitilde{}/.zshrc}
+    \item Type your password when prompted
+  \item Add the following line: \texttt{alias python=python3}
+  \item Add the following line: \texttt{alias pip=pip3}
+  \item Save file by hitting Ctrl + x and hitting Y and then Enter (or return) when prompted to save
+  \item A new bar will appear at the bottom with TAB hit enter and everything should save.
+  \item Close out of the Terminal
+  \end{enumerate}
+\item Test that this is working by opening a new Terminal and typing \texttt{python --version}
+\end{enumerate}
+
+
+\subsection{Windows}
+Installation Instructions: 
+\begin{enumerate}
+\item Download Windows installer(64-bit) at
+
+  \url{https://www.python.org/downloads/windows/}
+
+\item Run the installer file called \textit{python-3.13.7-amd64.exe}
+\item An installation window will pop up, check the last box at the bottom of the window: ``Add Python 3.13.7 to PATH'' and ``Use admin privileges when installing py.exe''
+\item Click ``Install Now'' at the top.
+  \item Hit close button once the successful install button appears.
+\end{enumerate}
+
+Check that it is installed correctly: 
+\begin{enumerate}
+\item Press WinKey + r to open the Run box.
+\item Type cmd into the box and press Enter
+  \item Type \texttt{python --version}, then press Enter. It should print Python 3.13.7 which means things are installed correctly
+\end{enumerate}
+
+
+\section{Instling Microsoft Visual Studio Code}
+For all projects we are going to write code in a text editor. While there are a wide range of text editors out there, I recommend using Microscoft Visual Studio Code (VS Code for short).
+This editor has built in features we will use for all the assignments.
+
+\subsection{macOS}
+Installation Instructions: 
+\begin{enumerate}
+\item Download Microscoft VS Code at \url{https://code.visualstudio.com/Download}. Select the Mac OS option.
+\item You should see a file with a blue icon called Visual Studio Code in your Downloads folder. Drag it into your Applications folder
+\item Open VS Code and create a new file called \textbf{test.py}. To make a new file go to the top bar of the application click File $\rightarrow$ New File, a pop up window will appear and you will be prompted to name the new file.
+  \item Once you have made your new file, you should see a pop-up in bottom right corner asking you about installing a Python extension. Click Install
+\item VS Code should install it, then you should see Python at the bottom right corner of the screen
+\item If a drop-down menu should appear with some options at the top. Then Click the entry that says 3.13.7 followed by /usr/local/bin/python3
+\item Dismiss the pop-up window that continually appears about ``Linter pylint''. Click Do not show again.
+\end{enumerate}
+
+\subsection{Windows}
+Installation Instructions: 
+\begin{enumerate}
+\item Download Microscoft VS Code at \url{https://code.visualstudio.com/Download}. Select the Windows option
+\item Dobule-click the installer file to install it on your computer
+\item To integrate Python with VS Code, open and create a new file called \textbf{test.py}. To make a new file go to the top bar of the application click File $\rightarrow$ New File, a pop up window will appear and you will be prompted to name the new file.
+\item A pop-up in VS code about a Python extension being recommended will appear. Click Install
+\item You should see ``Python 3.13.7'' in the bottom right corner of the editor which means you are ready to go
+\end{enumerate}
+
+We will now install an additional package necessary on Windows to do the assignments this semester.
+\begin{enumerate}
+\item Download Git from \url{https://git-scm.com/download/win}
+\item Double click and install Git, this will ask you a series of questions agree to the default settings and install.
+\item Open Visual Studio Code and press (Ctrl + \textasciigrave) where  \textasciigrave is the same key as \textasciitilde{}.
+\item Open the command palette using (Ctrl + Shift + p)
+\item Type - Select Default Profile
+\item Select Git Bash from the options
+\item Close Visual Studio
+\item Reopen Visual Studio and you should see bash in the right bottom corner next to the terminal
+\end{enumerate}
+These instructions came from:
+\url{https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal}
+
+\section{Show file extensions}
+To ensure you can see which files are code files, we need to make sure the proper settings are setup.
+
+\subsection{macOS}
+\begin{enumerate}
+\item Go to the Finder preferences. (This is found on the top left corner of the screen and click preferences)
+\item Click Advanced
+\item Make sure \textit{Show all filename extensions} is checked.
+\end{enumerate}
+
+
+\subsection{Windows}
+\begin{enumerate}
+\item Open up File Explorer 
+\item Go to View
+ \item Click \textit{File name extensions} 
+\end{enumerate}
+
+In both cases you should see \textit{test.py} with the .py showing in your Finder or Explorer window. 
+
+\section{Checking your setup}
+In VS Code, open a terminal. The shorthand is Ctrl + \textasciigrave where  \textasciigrave is the same key as \textasciitilde{}.
+
+If you do not want to use the short hand then: 
+\begin{itemize}
+\item \textbf{Mac} Go to the Terminal menu on top bar and select New Terminal
+\item \textbf{Windows} Go to the 3 dots (...) on the top bar, select Terminal, New Terminal
+\end{itemize}
+In the next section we will go over the details of what a terminal is and why we should use it etc. 
+In the terminal, on both operating systems do the following:
+
+\vspace{5mm}
+
+\textit{python $--$version}
+
+\textit{pip $--$version}
+
+\textit{pip install opencv-contrib-python}
+
+\vspace{5mm}
+
+\subsection{Writing First Python Program}
+In the terminal type:
+
+\vspace{5mm}
+  \textit{mkdir ES1098}
+  
+  \textit{cd ES1098}
+  
+  \textit{code myFirstProgram.py}
+  \vspace{5mm}
+  
+This will make a new directory called ES1098, move you into that directory and open a file called \texttt{myFirstProgram.py}. 
+
+In \textbf{myFirstProgram.py}, type:
+\begin{lstlisting}[language=Python]
+print(``Hello World'')
+\end{lstlisting}
+
+Remember to save your file, this is done by type \texttt{Ctrl + s} or File $\rightarrow$ save.
+
+In the terminal type:
+\vspace{5mm}
+
+\textit{python myFirstProgram.py}
+
+\vspace{5mm}
+What is the output?
+
+\vspace{5mm}
+Congratulations! You have completed lab 0 and the setup for the rest of the semester! We will rely on this backbone for all labs and projets.
+
+
+\section{Acknowledgments}
+Section 2, 3, and 4 of these instructions are from Professor Oliver Layton and Professor Hannen Wolfe in the Colby College CS Department. Section 5 is a combination of the prior sources and including work from Professor Bruce Maxwell and Professor Stephanie Taylor in the Colby College CS Department. 
+Sources:
+\begin{itemize}
+\item \footnotesize{\url{https://cs.colby.edu/courses/S25/cs151/projects/00/Lab00Software.html}}
+\item \url{https://cs.colby.edu/courses/S25/cs151/projects/01/Lab01First-Python.html}
+\item \url{https://cs.colby.edu/courses/S20/cs152-labs/labs/lab01/}
+\item \url{https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal}
+\end{itemize}
+
+
+\end{document}
