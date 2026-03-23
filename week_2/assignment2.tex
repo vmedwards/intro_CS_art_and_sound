@@ -1,0 +1,190 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,euscript,graphicx}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}
+\usepackage{fancybox,color}
+\usepackage[footnotesize]{caption}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[top=0.9375in, right=0.9375in, left=0.9375in, bottom=0.9375in, centering]{geometry}
+\usepackage{bm}
+
+\usepackage{amsthm}
+
+
+% -- Loading the code block package:
+\usepackage{listings}
+% -- Basic formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{times}
+\setlength{\parindent}{8pt}
+\usepackage{indentfirst}
+% -- Defining colors:
+\usepackage[dvipsnames]{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% Definig a custom style:
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% -- Setting up the custom style:
+\lstset{style=mystyle}
+
+
+% IEEE uses Times Roman font, so we'll default to Times.
+% These three commands make up the entire times.sty package.
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+\newcommand{\squeeze}{\vspace{-0.1in}}
+\newcommand{\changed}[1]{\textcolor{blue}{#1}} %generates text in blue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\Large {\bf Assignment 2: A complex scene}}
+  
+\end{center}
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\section{Summary}
+In this assignment, you are going to recreate an every day scene on MDI using simple and compound shapes.
+The programming objectives are for you to practice with Python syntax, use parameters, and learn good code organization. 
+
+\section{Develop a dsesign for your scene}
+Think about an everyday scene on MDI. You will design a scene on paper as a collection of complex objects. Come up with at least 3 complex objects of your own that you want to create for your scene. Think about what shapes you need to create the complex objects.
+
+\textbf{Take a photo of your design document and include it in your report.} 
+
+\section{Create your project files}
+\subsection{Create \texttt{shapelib.py}: it will store all the functions that you write to draw different shapes}
+1) Make a COPY of \texttt{lab2.py} and name it \texttt{shapelib.py}. This will be your shape library — it will store all the functions that you write that draw different shapes. You will need to turn in \texttt{lab2.py} so that it can be graded; do not modify your code from lab without making a copy!
+
+2) Remove all main code from \texttt{shapelib.py} so that it only has \texttt{import} statements and function definitions.
+
+
+\subsection{Reset turtle heading in the \texttt{goto} function}
+In your \texttt{goto} function in \texttt{shapelib.py}, add a call to the \texttt{setheading} turtle function so that the turtle always faces east when you call \texttt{goto} (We are using "standard mode").
+
+This may be helpful when you create your scene because you will know the turtle is always facing east when it moves to draw a new shap.e
+
+\section{Make two or more simple shapes in \texttt{shapelib.py}}
+They could be shapes like a rectangle, circle, non-equilateral triangle, n-gon, etc. Each function should minimally take parameters for: (x location, y location, and necessary size information).
+For example, if you were making a function that draws a rectangle, you would have a parameters you would have two parameters for the width and height, in pixels.
+Some important guidelines:
+\begin{itemize}
+\item Plan ahead: these will be the building blocks that you use to make everyday compound shapes that you see around campus (e.g. buildings, cars, trees, people, etc.). For example, if you eventually want to make a person, what simple shapes (e.g. circle, rectangle, triangle) do you need to make it?
+\item You want to make sure that your shapes draw properly no matter where they are drawn on the screen, what the size parameter is, or what the heading of the turtle happens to be when the shape function executes.
+\end{itemize}
+
+\textbf{Test out each of your functions one-by-one as you make them.} This means calling your two shapes in main code at the bottom of main.py several times to draw each in a few different positions and sizes.
+Take a screenshot. This is \textbf{Required Images 2 and 3} that you should include and describe in your written report.
+
+\section{Make two compound shape functions in \texttt{shapelib.py}}
+These should be things you see around MDI (e.g. buildings, people, trees, etc.). The objects should be built from at least two of your simple shapes (e.g. triangles, rectangles, circles, etc.) from your shape library.
+
+Just like \texttt{triangleStack} from lab, your compound shape functions should take at least three parameters: (x position, y position, scale).
+
+Remember the process for designing complex shapes:
+
+\begin{itemize}
+\item Hard-code all parameter values in your function with actual numbers to make something that looks good.
+\item Replace the position of your first shape with (x, y). Convert the remaining shape positions to offsets.
+\item Multiply the scale parameter to sizes and offsets, not positions.
+Your shapes should draw properly at any scale, location, or turtle orientation.
+\end{itemize}
+
+Take a screenshot of both compound objects. This is \textbf{Required Images 4 and 5} that you should include and explain in your written report.
+
+
+\section{Make a scene}
+Write your code in a function called \texttt{myScene} in \texttt{main.py}.
+It should use the simple and compound shapes that you have made — drawing them in different positions and sizes. You can also use color and the random module to make your scene more complex and interesting.
+
+Take a screenshot. This is \textbf{Required Image 6} that you should include in your report.
+
+\section{Extensions}
+You have completed the core tasks for this assignment. This will get you up to 27/30 points.
+The remaining 3 points are a chance for you to earn credit for exploring parts of the project that interest you and digging deeper into topics / expressing your creativity.
+This is optional, and submitting without pursuing an extension is perfectly fine.
+You can pick topics that interest you and there is a lot of freedom in this selection.
+
+\begin{itemize}
+\item Creative or complex scenes above and beyond the basic expectations count as extensions
+\item Make additional basic or complex shape functions that make use of your other shape functions.
+\item Make additional scenes that show creative use of functions, loops, or randomness.
+\item Make use of other turtle properties such as line width, color, and fill capability to make your shapes more interesting.
+\item Add additional parameters to your shapes to control properties like line width and color.
+\item Use loops wherever possible to make your code more concise and efficient.
+\end{itemize}
+
+\section{Submission}
+For each project you will include a brief written report along with your code files.
+We are going to go over the submission procedure now as a class. 
+
+\subsection{Report}
+Each report consists of:
+\begin{enumerate}
+\item Header at the top of the page with your name, date and class
+\item A title that describes the content of the report. 
+\item Abstract: A one paragraph summary of the project
+\item Results: All 4 required images showing what you created alongside a description of what each image is and how you designed / created it with code.
+\item Conclusion: A brief description (1-3 sentences) of what you learned.
+\item AI Usage Statement: A statement on if you used AI on this project. Reflection on how you used AI for the project including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorparated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violatoin of the academic integrity policy.
+\item Acknowledgments: A list of websites that you used and people you worked with including TAs and professors.
+\end{enumerate}
+
+You will create a google doc attached to the assignment in google classroom and fill it in with this material for assignment 2. 
+
+\subsection{Code submission}
+Each week you need to include all code that is necessary to create the results shown in your report.
+Please do not delete code, instead comment code out as necessary.
+If you have results in your report and there is no corresponding code I have no way of knowing where you got the result from.
+
+When you submit your code I should be able to run \textit{python <filename>.py} and get the following:
+\begin{itemize}
+\item \texttt{lab2.py} A stack of triangles drawn in different positions and at different sizes
+  \item \texttt{main.py} Your MDI scene. 
+\end{itemize}
+
+In google classroom, upload your \texttt{lab2.py}, \texttt{main.py}. 
+Remember to submit your project.
+
+\section{Acknowledgments}
+These instructions are from Professor Hannen Wolfe in the Colby College CS Department. 
+Sources:
+\begin{itemize}
+\item \footnotesize{\url{https://cs.colby.edu/hewolfe/courses/cs151/f21/projects/02/Project02ShapeCollection.html}}
+\end{itemize}
+
+
+\end{document}

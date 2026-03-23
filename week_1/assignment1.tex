@@ -77,25 +77,170 @@
 \vspace{5pt}
 
 \section{Summary}
-In this assignment, you will make more shapes and write functions to introduce generality to your shapes. 
+In this assignment, you will make more shapes and write functions to reuse code and introduce generality to your shapes. 
 
 \section{Creating a new shapes}
+In this section, we will make two new shapes. 
 
 \subsection{Inventing a shape}
+\subsubsection{Drawing the shape}
+Start with pen and paper.
+Draw out 2 new shapes.
+This cannot be a square, rectangle, triangle, hexagon, or the builtin \texttt{\textcolor{blue}{circle()}} function.
+
+\subsubsection{How to take the drawing and make it code}
+Look at your drawing and break it down into the steps you took to draw it.
+Did you go forward or backward, how much did you turn by before you drew the next line?
+Map the steps you took on paper to the commands we have in Python that we covered in Lab 1. 
 
 \subsection{Build a Python program to draw the new shape}
+In VS Code, create a new file called \texttt{shapeA.py}.
+\begin{itemize}
+\item Put your name, date, and program purpose in the header.
+\item import turtle graphics
+\item write out the sequence of turtle commands to draw your shape
+\item incldue \texttt{exitonclick()} as the last line of your file.
+\end{itemize}
+
+\textbf{Take a screen shot of your shape. This is required Image 1}
 
 \subsection{ Create another new shape}
+Repeat the steps above in a new file called \texttt{shapeB.py}.
+Once you have completed the steps run the code in your terminal with the command \textit{python shapeB.py}.
+
+\textbf{Take a screen shot of your shape. This is required Image 2}
 
 \section{Make a pattern using two shapes}
+In this section we are going to draw both shapes in one file.
+In VS Code, make a new file called \texttt{combinedShapes.py}.
+Remember to include the standard header and import statements. 
 
-\subsection{Make functions for the two shapes}
+\subsection{Make a function for your two shapes}
+\subsubsection{Define your functions}
+Create two new functions called \texttt{\textcolor{blue}{shapeA()}} and texttt{\textcolor{blue}{shapeB()}}.
+Draw the shapes within their respective functions.
+You can copy and paste the code from the previous files into the functions, just remember to indent all code you want to run in your function.
+
+As an example consider this triangle function:
+\begin{lstlisting}[language=Python]
+def triangle():
+    forward(100)
+    left(120)
+    forward(100)
+    left(120)
+    forward(100)
+    left(120)\end{lstlisting}
+
+\subsubsection{Call your functions}
+Call your functions at the bottom of your file before \texttt{exitonclick()}.
+Remember that the function call consists of the function name followed by parathensis.
+Using the triangle function from before my code would look like:
+begin{lstlisting}[language=Python]
+def triangle():
+    forward(100)
+    left(120)
+    forward(100)
+    left(120)
+    forward(100)
+    left(120)
+
+triangle()
+exitonclick()
+\end{lstlisting}
+Notice that the \texttt{triangle()} function is not indented and will be run when you call the program in your terminal using the command \textit{python combinedShapes.py}.
+
+If you call both functions, notice that they will draw on top of one another.
+To prevent this you can comment out the lines of code you do not want to run using \#.
+
+\subsubsection{Test and Generate Results}
+Test your code by runing it in the terminal.
+
 
 \subsection{Create a new shape or pattern out of \texttt{shapeA} and \texttt{shapeB}}4
+In your file \texttt{combinedShapes.py} make a new function called \textcolor{blue}{\texttt{shapeC()}} which calles \texttt{shapeA()} and \texttt{shapeB()} to make a new shape.
+It is your job to come up with a new interesting shape and not simply put the two piceis together.
+A minimal example would be:
+\begin{lstlisting}[language=Python]
+def shapeC():
+    shapeA()
+    forward(100)
+    shapeB()\end{lstlisting}
+
+Your function should do something different from this example.
+Remember to make a function call to \texttt{shapeC()} before the exit function and to comment out other unwanted function calls to shapeA and shapeB.
+
+\textbf{When you are happy with the result, take a screen shot of your shape. This is required Image 3}
 
 \section{Use parameters to control how your shapes are drawn}
+Currently, your shapes are drawn the same way every time you call the function, \textit{e.g.}, in the triangle function the side length is always 100.
+But what if you wanted a larger or smaller triangle?
+To change the length we will introduce parameters to your functions to easily change different features of the shapes.
+
+The following is an example of incorporating a distance parameter to the triangle function. 
+\begin{lstlisting}[language=Python]
+def triangle(distance):
+    forward(distance)
+    left(120)
+    forward(distance)
+    left(120)
+    forward(distance)
+    left(120)\end{lstlisting}
+
+\subsection{Make a function that draws a shape of any size}
+In VS Code, make a new Python file called \texttt{composition.py}.
+In this file, create a function \texttt{\textcolor{blue}{shapeD()}} that draws a shape and has one or more parameters that controls the size.
+You could reuse shapeA or shapeB or create a new one.
+
+\subsubsection{Compose an image with shapes with different parameter values}
+Define a \texttt{\textcolor{blue}{composition()}} function that contains shapes with different parameter values.
+You must call \texttt{shapeD()} at tleast 5 times with different parameter values.
+Depending on what aspect of your shape you are controlling with parameters, calling the \texttt{composition()} function might be calling \texttt{shapeD} in different locations at different sizes.
+
+\textbf{Test your code and when you are happy with the end product take a screen shot. This is Required Image 4}.
+
 
 \section{Extensions}
+At this point you are done with your assignment and if you turn things in on time you can earn up to 27/30 points.
+The remaining 3 points are achieved by pursing what we will call an extension.
+An extension is an opportunity for you to dive deeper into the course content while also acknowledging that as a student you are busy.
+A 27/30 is an A- and a perfectly acceptable place to stop.
+
+If you would like to engage with the material further here are some ideas for extensions:
+\begin{itemize}
+\item Define additional shape functions
+\item Figure out how to repeat instructiosn a certain number of times
+\item Wirte a function that will draw an N-gon, taking in parameters distance and number of sides
+  \item Explore additional turtle functions that are not covered in lab or lecture. 
+\end{itemize}
+Extensions are optional. Pursuing many small extensions will add up and pursing a single extension that is more involved will also give more points.
+
+
+\section{Submission}
+For each assignment you will include a brief written report along with your code files.
+We are going to go over the submission procedure now as a class. 
+
+\subsection{Report}
+Each report consists of:
+\begin{enumerate}
+\item Header at the top of the page with your name, date and class
+\item A title that describes the content of the report. 
+\item Abstract: A one paragraph summary of the assignment
+\item Results: All 4 required images showing what you created alongside a description of what each image is and how you designed / created it with code.
+\item Conclusion: A brief description (1-3 sentences) of what you learned.
+\item AI Usage Statement: A statement on if you used AI on this assignment. Reflection on how you used AI for the assignment including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorparated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violatoin of the academic integrity policy.
+\item Acknowledgments: A list of websites that you used and people you worked with including TAs and professors.
+\end{enumerate}
+
+You will create a google doc attached to the assignment in google classroom and fill it in with this material for project 1. 
+
+\subsection{Code submission}
+Each week you need to include all code that is necessary to create the results shown in your report.
+Please do not delete code, instead comment code out as necessary.
+If you have results in your report and there is no corresponding code I have no way of knowing where you got hte result from.
+
+In google classroom, upload your \texttt{shapeA.py}, \texttt{shapeB.py}, \texttt{combinedShapes.py}, and \texttt{composition.py}. 
+
+Remember to submit your project.
 
 \section{Acknowledgments}
 These instructions are from Professor Hannen Wolfe in the Colby College CS Department. 

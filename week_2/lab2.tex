@@ -1,0 +1,210 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,euscript,graphicx}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}
+\usepackage{fancybox,color}
+\usepackage[footnotesize]{caption}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[top=0.9375in, right=0.9375in, left=0.9375in, bottom=0.9375in, centering]{geometry}
+\usepackage{bm}
+\usepackage{float}
+
+\usepackage{amsthm}
+
+
+% -- Loading the code block package:
+\usepackage{listings}
+% -- Basic formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{times}
+\setlength{\parindent}{8pt}
+\usepackage{indentfirst}
+% -- Defining colors:
+\usepackage[dvipsnames]{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% Definig a custom style:
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% -- Setting up the custom style:
+\lstset{style=mystyle}
+
+
+% IEEE uses Times Roman font, so we'll default to Times.
+% These three commands make up the entire times.sty package.
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+\newcommand{\squeeze}{\vspace{-0.1in}}
+\newcommand{\changed}[1]{\textcolor{blue}{#1}} %generates text in blue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\Large {\bf Lab 2: Functions that Control Shapes}}
+  
+\end{center}
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\section{Summary}
+In this lab, we will add further generality to our shapes using functions and parameters.
+The main goal is to learn about good code organization. 
+
+\section{Setup}
+\begin{itemize}
+  \item open a terminal in VS Code. 
+  \item Navigate to your ES1098 folder, use \texttt{ls}, \texttt{cd}, and \texttt{pwd} to help you find this directory
+  \item Once you are in this directory you should see: \texttt{/Users/<computername>/ES1098} when you type \texttt{pwd}.
+  \item Create a new folder by typing \texttt{mkdir lab2}
+  \item Move into that folder by typing \texttt{cd lab2}
+  \item Confirm your current directory by typing \texttt{pwd}.
+\end{itemize}
+
+In VS Code, make a new file called \texttt{lab2.py}. Remember: you can do this using the \texttt{code lab2.py} in the terminal of your VS Code IDE. Make sure you are in the correct directory. 
+
+\section{Code Organization}
+In \texttt{lab2.py} write a function that draws a triangle. It should take in one parameter, \texttt{sideLength}, which is the length (in pixels) of each of the sides. \textbf{Important}: Draw the triangle so that the turtle starts out at the lower-left corner. Remember the turtle initiall faces eastward on the screen.
+
+Call the triangle function from main code, or the code not indented at the bottom of your file. Test your code by running it in the terminal \textit{python lab2.py}.
+
+Now we are going toconsider the code organization and good practices.
+
+\begin{enumerate}
+\item Header comments: which includes your name, course, semester, and a one line description
+\item Import statements, \texttt{import turtle}
+\item Function definitions separated by empty lines
+\item Every funciton should have a comment that describes what the functio ndoes
+\item At least one inline comment if there are more than 3 lines of code in the function
+\item A comment indeication where the main code starts
+\item Main code the program will run
+\end{enumerate}
+Check out the turtle.speed() function to see how you can speed up the drawing of your figures.
+Don't forget to use the \texttt{exitonclick()} functionat the end of your file 
+
+
+\section{Moving the turtle anywhere on the screen}
+The goal of this section is to draw a triangle anywhere on the canvas, not just at the (0, 0) position. 
+
+\section{Positioning and scaling shapes}
+We want to draw shapes at any size (also called scale) and position.
+\subsection{Draw a triangle at any position and scale}
+Write a new function called \texttt{triangle2} hat has the following signature:
+
+\begin{lstlisting}[language=Python]
+def triangle2(x, y, scale):
+    """
+    Draws a triangle at any (x, y) position and scale (scale).
+    By default, the side Lengths are 100 (when scale = 1)
+    """
+    # Your code goes here
+\end{lstlisting}
+Your \texttt{triangle2} function should move the turlte to the given (x, y) position and draw a triangle with a side length equal to 100 pixels when the scale parameter is 1.
+
+Guidelines:
+\begin{itemize}
+\item You should only need to write 2 lines of code
+\item Remember you can call functions inside of other functions
+\end{itemize}
+
+\subsection{Testing your \texttt{triangle2} function}
+
+Comment out any existing function calls in the main code that are not \texttt{speed}, or \texttt{exitonclick}. Test \texttt{triangle2} by callign it 3 times: with scale = 1 (standard size), scale = 2 (double standard size), and scale = 3 (triple standard size).
+The output does not need to be fancy, the key is that your triangles appear at different positions and sizes. Here is an example: 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{lab2_4n.png}
+\end{figure}
+
+\section{Position and scale compound shape}
+We are going to make a compound shape, or a more complex shape made up of your simpler shapes arranged in different positions and / or scales.
+
+\subsection{Draw a hard-coded compound shape}
+Copy the following code into your \texttt{lab2.py} file. 
+\begin{lstlisting}[language=Python]
+def triangleStack(x, y, scale):
+    '''Draws three triangles on top of each other.
+    Smaller triangles are placed on top of larger ones
+    '''
+    # Largest triangle
+    triangle2(0, 0, 2)
+    # Medium triangle in middle
+    triangle2(50, 173.2, 1)
+    # Small triangle on top of stack
+    triangle2(75, 259.81, 0.5)
+\end{lstlisting}
+
+Next, comment out existing main code except for \texttt{speed} and \texttt{exitonclick}.
+Finally, call \texttt{triangleStack} to see what it looks like from the main code.
+Note, the parameters are not used yet, so pick any 3 values right now when calling the function, \textit{e.g.}, \texttt{triangleStack(0, 0, 1)}
+
+\subsection{Convert hard-coded positions to offsets}
+We are going to convert the hard-coded compound shape (stack of three triangles) into a shape that we can move to any position and make any scale that we wish. We will do this in two stages.
+
+First, convert the hard-coded positions to offsets. Make the lower-left corner of the first triangle (where the turtle starts out) "the origin" at (x, y), i.e., has offset of (0, 0). Compute the offsets relative to (x, y).
+
+When you're done, test it by commenting out existing main code and draw \texttt{triangleStack} at three positions: \texttt{(x, y) = (-200, 0), (x, y) = (0, 0)}, and \texttt{(x, y) = (200, 0)}. The scale parameter value does not matter right now.
+
+The output should look like this: 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{lab2_5b.png}
+\end{figure}
+
+\subsection{Scaling the compound shape}
+The second and last step is to make the triangle stack resizable. Do this by multiplying the offsets and scales by the parameter scale.
+
+When you are done, test it by modifying your existing main code:
+\begin{itemize}
+\item Draw the 1st stack at scale 1, the 2nd at scale 1/2 and the third at scale 1/3
+  \item Draw at these 3 positions texttt{(x, y) = (-200, 0), (x, y) = (0, 0)}, and \texttt{(x, y) = (100, 0)}
+\end{itemize}
+
+The ouput should look like this: 
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.5\textwidth]{lab2_5c.png}
+\end{figure}
+
+Take a screen shot of your final product. This is \textbf{Required Image 1} for your project report.
+
+\section{Acknowledgments}
+This lab is from Professor Hannen Wolfe in the Colby College CS Department. 
+Sources:
+\begin{itemize}
+\item \footnotesize{\url{https://cs.colby.edu/hewolfe/courses/cs151/f21/projects/02/Lab02FunctionsToControlShapes.html}}
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,euscript,graphicx}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}
+\usepackage{fancybox,color}
+\usepackage[footnotesize]{caption}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[top=0.9375in, right=0.9375in, left=0.9375in, bottom=0.9375in, centering]{geometry}
+\usepackage{bm}
+\usepackage{float}
+
+\usepackage{amsthm}
+
+
+% -- Loading the code block package:
+\usepackage{listings}
+% -- Basic formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{times}
+\setlength{\parindent}{8pt}
+\usepackage{indentfirst}
+% -- Defining colors:
+\usepackage[dvipsnames]{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% Definig a custom style:
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% -- Setting up the custom style:
+\lstset{style=mystyle}
+
+
+% IEEE uses Times Roman font, so we'll default to Times.
+% These three commands make up the entire times.sty package.
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+\newcommand{\squeeze}{\vspace{-0.1in}}
+\newcommand{\changed}[1]{\textcolor{blue}{#1}} %generates text in blue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\Large {\bf Lab 3: Making use of for loops}}
+  
+\end{center}
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\section{Summary}
+In this lab, we will reduce the number of lines of code by taking advantage of for loops. 
+
+\section{Setup}
+\begin{itemize}
+  \item open a terminal in VS Code. 
+  \item Navigate to your ES1098 folder, use \texttt{ls}, \texttt{cd}, and \texttt{pwd} to help you find this directory
+  \item Once you are in this directory you should see: \texttt{/Users/<computername>/ES1098} when you type \texttt{pwd}.
+  \item Create a new folder by typing \texttt{mkdir lab3}
+  \item Move into that folder by typing \texttt{cd lab3}
+  \item Confirm your current directory by typing \texttt{pwd}.
+\end{itemize}
+
+In VS Code, make a new file called \texttt{lab2.py}. Remember: you can do this using the \texttt{code lab3.py} in the terminal of your VS Code IDE. Make sure you are in the correct directory. 
+
+\section{Using Loops to define simple shapes}
+
+\section{Design a repeating Geometric pattern}
+
+
+
+\section{Acknowledgments}
+This lab is from Professor Hannen Wolfe in the Colby College CS Department. 
+Sources:
+\begin{itemize}
+\item \footnotesize{\url{https://cs.colby.edu/hewolfe/courses/cs151/f21/projects/02/Lab02FunctionsToControlShapes.html}}
+\end{itemize}
+
+
+\end{document}
