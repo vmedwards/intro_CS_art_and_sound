@@ -90,12 +90,40 @@ In this lab, we will reduce the number of lines of code by taking advantage of f
   \item Confirm your current directory by typing \texttt{pwd}.
 \end{itemize}
 
-In VS Code, make a new file called \texttt{lab2.py}. Remember: you can do this using the \texttt{code lab3.py} in the terminal of your VS Code IDE. Make sure you are in the correct directory. 
+In VS Code, make a new file called \texttt{lab3.py}. Remember: you can do this using the \texttt{code lab3.py} in the terminal of your VS Code IDE. Make sure you are in the correct directory. 
 
 \section{Using Loops to define simple shapes}
+We are going to rework shapes in your file \texttt{shapelib.py} from last week.
+In your file \texttt{lab3.py}, do the following:
+\begin{itemize}
+\item Put a file header
+\item Import turtle
+\item Copy the \texttt{goto} function from last week
+\item Next define a function \texttt{square} which takes in as parameters \texttt{x, y, scale}. Which refers to the x and y location and scale of the shape. Remember when scale is 1 the default forward is 100.
+\item In \texttt{square}, use a for loop to draw a square. There should be 4 lines of code in your function.
+\item Test your new function at the bottom of your file and before \texttt{turtle.exitonclick()}.
+\end{itemize}
+
+Next, we will defin a function called \texttt{polygon} that takes in as parameters \texttt{x, y, scale, N}, where \texttt{N} is the number of sides.
+\begin{itemize}
+\item Define a variable \texttt{angle} and set the value to be equal to 360 divided by the number of sides.
+\item using a for loop write the 3 lines of code total needed to draw any N-sided polygon.
+\item remember to call your \texttt{goto} function.
+\item Test your new function with a range of shapes to make sure it works as you anticipate.
+\end{itemize}
 
 \section{Design a repeating Geometric pattern}
+We are going to use for loops to build a repeating pattern.
+The goal is to add generality using function parameters to allow the pattern to be as large as we want.
+\begin{itemize}
+\item Copy the following into your lab3.py file. 
 
+\item Nested for loops
+\item color
+\item fill shape
+\item draw shape
+\item testing 
+\end{itemize}
 
 
 \section{Acknowledgments}

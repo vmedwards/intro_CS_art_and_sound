@@ -82,7 +82,7 @@ In this lab, we will introduce basic terminal functionality and Turtle Graphics.
 \section{Introduction to the Terminal}
 We will go over what a terminal is, how to use it, and why you should care.
 
-\subsection{OPen the Terminal}
+\subsection{Open the Terminal}
 Open the VS code text editor.
 
 Open the terminal by either clicking \texttt{Ctrl + `} or clicking \texttt{Terminal} in the menu and selecting \texttt{New Terminal}. Note: In Windows this is at the top of the window and in Mac this is in the menu bar. If you do not see it, then try selecting the 3 dots in the menu bar and then selecting Terminal $\rightarrow$ New Terminal. 
@@ -128,7 +128,7 @@ where username is the computer account name.
 \textbf{Note to Windows users}: instructions use the forward slash convention moving forward. On windows in the Terminal you can use backwards and forwards slashes interchangeably. This is not true on Mac. 
 
 The directory represents the place in computer memory where the information is stored.
-The complete descrpition of where a directory or file on a computer is located is called a \textbf{path}.
+The complete description of where a directory or file on a computer is located is called a \textbf{path}.
 Note that paths are \textbf{case-sensitive}. 
 We will use paths and filenames to change directories, list contents of directories, and run Python programs. 
 
@@ -140,7 +140,7 @@ As a text-based interface, we need key stroke commands to move directories the w
 \item \textit{pwd}: Stands for ``print working directory''. It tells you where you currently are on your computer. For example when you open the terminal, usually it is in the home folder. Test this out, type \textit{pwd} in the terminal and see what comes out. 
 \item \textit{ls}: Stands for ``list'' the files/folders in the current directory. 
 \item \textit{mkdir $<$ new folder name here $>$}: Stands for ``make directory''. When you type this command followed by a space and then the name of a new folder you want to create in your current working directory. 
-  \item \textit{cd $<$ type in a direcotry here $>$}: Stands for ``change directory''. When you type this command followed by a space, followed by the directory path you want to go to the Terminal directory will change. 
+  \item \textit{cd $<$ type in a directory here $>$}: Stands for ``change directory''. When you type this command followed by a space, followed by the directory path you want to go to the Terminal directory will change. 
 \end{enumerate}
 
 \subsubsection{Do you always need to know the exact path?}
@@ -166,14 +166,14 @@ Beyond changing directories and looking at files in those directories there are 
 
 For example
 \begin{itemize}
-\item \textit{mv $<$from$>$ $<$to$>$}: move a file from one location to another location. This includes just renaming it in the current directory. The mv command will remove the file in the old locaito nafter copying it to the new location.
+\item \textit{mv $<$from$>$ $<$to$>$}: move a file from one location to another location. This includes just renaming it in the current directory. The mv command will remove the file in the old location after copying it to the new location.
 \item \textit{cp $<$from$>$ $<$to$>$}: copy a file to a new location or name
 \item \textit{rm $<$filename$>$}: remove the file (will not remove a directory). \textbf{WARNING:} This is not the same as dragging a file to the trash in Finder or Explorer. Once the file is removed there is no recovering the file.
 \item \textit{rm -r $<$directory$>$}: remove the directory and all the files and subdirectories in it.
 \item \textit{less $<$filename $>$}: scroll through a file
 \item \textit{cat $<$filename$>$}: send the file to standard output in the terminal
 \item \textit{echo ``a string''}: write the text within the string to standard output in the terminal 
-  \item \textit{touch $<$filename$>$}:updates the modification date on a file or creates an empty file if the named file does not exist. This can be useful in various situtations, like when you are learning to create, rename, and delete files using the terminal
+  \item \textit{touch $<$filename$>$}:updates the modification date on a file or creates an empty file if the named file does not exist. This can be useful in various situations, like when you are learning to create, rename, and delete files using the terminal
 \end{itemize}
 
 \subsection{Terminal Tips and Tricks}
@@ -219,13 +219,13 @@ To showcase your understanding of this section, you will now create a lab1 folde
 \end{itemize}
 
 \section{Turtle Graphics}
-Python is a powerful interpreted language that can do many different things. Last fall we learned the same concepts you will this spring but did assignments that mainpulated and created data. This spring we will focus on art and sound for our assignments.
+Python is a powerful interpreted language that can do many different things. Last fall we learned the same concepts you will this spring but did assignments that manipulated and created data. This spring we will focus on art and sound for our assignments.
 To this end, we will use turtle graphics to draw images in our computers.
 You can image that there is a turtle holding a paint brush on your screen and when given commands the turtle will move leaving paint behind as it goes.
 The commands you will need for this lab include: 
 
 \begin{itemize}
-\item \texttt{forawrd(x)} - move forward \texttt{x} pixels
+\item \texttt{forward(x)} - move forward \texttt{x} pixels
 \item \texttt{backward(x)} - move backward \texttt{x} pixels
 \item \texttt{left(a)} - turn left \texttt{a} degrees
 \item \texttt{right(a)} - turn right \texttt{a} degrees
@@ -238,7 +238,7 @@ For more turtle details consult the documentation:
 \url{https://docs.python.org/3/library/turtle.html}
 
 \subsection{Make a new python program}
-You cannot write code in Microsoft or Google Docs. Instead you write code in a texteditor that removes fancy fonts and other formatting features.
+You cannot write code in Microsoft or Google Docs. Instead you write code in a text editor that removes fancy fonts and other formatting features.
 
 \begin{itemize}
 \item Open VS Code
@@ -248,7 +248,7 @@ You cannot write code in Microsoft or Google Docs. Instead you write code in a t
 \begin{lstlisting}[language=Python]
 """
     Author: <YOUR NAME>
-    Date: <TODAYS DATE>    
+    Date: <TODAY'S DATE>    
     Purpose: What your file does
 """\end{lstlisting}
 \item The first line of code will import turtle graphics:
@@ -261,6 +261,7 @@ exitonclick() \end{lstlisting}
   \item Save your file \texttt{Cmd + S} for MAC or \texttt{Ctrl + S} for Windows. If prompted supply the name \texttt{hexagon.py}. The \texttt{.py} tells your computer that you are writing Python code. 
   \item Using the \texttt{right()} and \texttt{forward()} commands draw a hexagon. One line of code will go on each line between the import and exitonclick() commands.
   \item To run your program you will type in your terminal:
+
     \vspace{5mm}
     \textit{python hexagon.py}
     \vspace{5mm}
@@ -276,7 +277,7 @@ Some bugs are logic bugs meaning that your code will run because nothing is wron
 
 If your code from above is not working here are some things to try / consider:
 \begin{itemize}
-\item Did you get an error in your terminal? Error messages are very specific in the terminal and often can point you to the problem and a potential solution. Check that everything is spelled correctly, that all parathensis are closed, and that there are no spaces or indentations before any command. (These are syntax errors)
+\item Did you get an error in your terminal? Error messages are very specific in the terminal and often can point you to the problem and a potential solution. Check that everything is spelled correctly, that all parenthesis are closed, and that there are no spaces or indentations before any command. (These are syntax errors)
 \item Are you seeing lines on the screen but it is not the shape that you want? (This is a logic bug). Consider this, how many sides are in a hexagon? Remember from geometry that the sum of all exterior angles is 360 degrees. Using this information, how can you determine the number of forward and right commands you need? 
 \end{itemize}
 
@@ -287,7 +288,7 @@ To help a bit more here is an example of an L shape.
   Date: 03/18/2026
   Purpose: Example for lab 1
 """
-from trutle import *
+from turtle import *
 
 forward(100)
 right(90)
@@ -315,7 +316,7 @@ Each report consists of:
 \item Abstract: A one paragraph summary of the project
 \item Results: Images showing what you created alongside a description of what each image is and how you designed / created it with code.
 \item Conclusion: A brief description (1-3 sentences) of what you learned.
-\item AI Usage Statement: A statement on if you used AI on this project. Reflection on how you used AI for the project including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorparated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violatoin of the academic integrity policy.
+\item AI Usage Statement: A statement on if you used AI on this project. Reflection on how you used AI for the project including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorporated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violation of the academic integrity policy.
 \item Acknowledgments: A list of websites that you used and people you worked with including TAs and professors.
 \end{enumerate}
 
@@ -324,7 +325,7 @@ You will create a google doc attached to the assignment in google classroom and 
 \subsection{Code submission}
 Each week you need to include all code that is necessary to create the results shown in your report.
 Please do not delete code, instead comment code out as necessary.
-If you have results in your report and there is no corresponding code I have no way of knowing where you got hte result from.
+If you have results in your report and there is no corresponding code I have no way of knowing where you got the result from.
 
 In google classroom, upload your \texttt{hexagon.py} file.
 

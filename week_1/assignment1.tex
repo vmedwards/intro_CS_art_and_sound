@@ -31,7 +31,6 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-% Definig a custom style:
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codepurple},
@@ -97,9 +96,9 @@ Map the steps you took on paper to the commands we have in Python that we covere
 In VS Code, create a new file called \texttt{shapeA.py}.
 \begin{itemize}
 \item Put your name, date, and program purpose in the header.
-\item import turtle graphics
+\item include the line \texttt{import turtle graphics} at the top of your file after the header
 \item write out the sequence of turtle commands to draw your shape
-\item incldue \texttt{exitonclick()} as the last line of your file.
+\item include \texttt{exitonclick()} as the last line of your file.
 \end{itemize}
 
 \textbf{Take a screen shot of your shape. This is required Image 1}
@@ -133,9 +132,9 @@ def triangle():
 
 \subsubsection{Call your functions}
 Call your functions at the bottom of your file before \texttt{exitonclick()}.
-Remember that the function call consists of the function name followed by parathensis.
+Remember that the function call consists of the function name followed by parenthesis.
 Using the triangle function from before my code would look like:
-begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python]
 def triangle():
     forward(100)
     left(120)
@@ -153,12 +152,12 @@ If you call both functions, notice that they will draw on top of one another.
 To prevent this you can comment out the lines of code you do not want to run using \#.
 
 \subsubsection{Test and Generate Results}
-Test your code by runing it in the terminal.
+Test your code by ruining it in the terminal.
 
 
 \subsection{Create a new shape or pattern out of \texttt{shapeA} and \texttt{shapeB}}4
-In your file \texttt{combinedShapes.py} make a new function called \textcolor{blue}{\texttt{shapeC()}} which calles \texttt{shapeA()} and \texttt{shapeB()} to make a new shape.
-It is your job to come up with a new interesting shape and not simply put the two piceis together.
+In your file \texttt{combinedShapes.py} make a new function called \textcolor{blue}{\texttt{shapeC()}} which calls \texttt{shapeA()} and \texttt{shapeB()} to make a new shape.
+It is your job to come up with a new interesting shape and not simply put the two pieces together.
 A minimal example would be:
 \begin{lstlisting}[language=Python]
 def shapeC():
@@ -193,7 +192,7 @@ You could reuse shapeA or shapeB or create a new one.
 
 \subsubsection{Compose an image with shapes with different parameter values}
 Define a \texttt{\textcolor{blue}{composition()}} function that contains shapes with different parameter values.
-You must call \texttt{shapeD()} at tleast 5 times with different parameter values.
+You must call \texttt{shapeD()} at least 5 times with different parameter values.
 Depending on what aspect of your shape you are controlling with parameters, calling the \texttt{composition()} function might be calling \texttt{shapeD} in different locations at different sizes.
 
 \textbf{Test your code and when you are happy with the end product take a screen shot. This is Required Image 4}.
@@ -208,8 +207,8 @@ A 27/30 is an A- and a perfectly acceptable place to stop.
 If you would like to engage with the material further here are some ideas for extensions:
 \begin{itemize}
 \item Define additional shape functions
-\item Figure out how to repeat instructiosn a certain number of times
-\item Wirte a function that will draw an N-gon, taking in parameters distance and number of sides
+\item Figure out how to repeat instructions a certain number of times
+\item Write a function that will draw an N-gon, taking in parameters distance and number of sides
   \item Explore additional turtle functions that are not covered in lab or lecture. 
 \end{itemize}
 Extensions are optional. Pursuing many small extensions will add up and pursing a single extension that is more involved will also give more points.
@@ -227,7 +226,7 @@ Each report consists of:
 \item Abstract: A one paragraph summary of the assignment
 \item Results: All 4 required images showing what you created alongside a description of what each image is and how you designed / created it with code.
 \item Conclusion: A brief description (1-3 sentences) of what you learned.
-\item AI Usage Statement: A statement on if you used AI on this assignment. Reflection on how you used AI for the assignment including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorparated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violatoin of the academic integrity policy.
+\item AI Usage Statement: A statement on if you used AI on this assignment. Reflection on how you used AI for the assignment including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were Incorporated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violation of the academic integrity policy.
 \item Acknowledgments: A list of websites that you used and people you worked with including TAs and professors.
 \end{enumerate}
 
@@ -236,7 +235,7 @@ You will create a google doc attached to the assignment in google classroom and 
 \subsection{Code submission}
 Each week you need to include all code that is necessary to create the results shown in your report.
 Please do not delete code, instead comment code out as necessary.
-If you have results in your report and there is no corresponding code I have no way of knowing where you got hte result from.
+If you have results in your report and there is no corresponding code I have no way of knowing where you got the result from.
 
 In google classroom, upload your \texttt{shapeA.py}, \texttt{shapeB.py}, \texttt{combinedShapes.py}, and \texttt{composition.py}. 
 
@@ -246,7 +245,7 @@ Remember to submit your project.
 These instructions are from Professor Hannen Wolfe in the Colby College CS Department. 
 Sources:
 \begin{itemize}
-\item \footnotesize{\url{https://cs.colby.edu/courses/F25/cs151a/projects/01/Project01WhatIsAShape.html}
+\item \footnotesize{\url{https://cs.colby.edu/courses/F25/cs151a/projects/01/Project01WhatIsAShape.html}}
 \end{itemize}
 
 
