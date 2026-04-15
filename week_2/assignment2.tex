@@ -80,7 +80,7 @@
 In this assignment, you are going to recreate an every day scene on MDI using simple and compound shapes.
 The programming objectives are for you to practice with Python syntax, use parameters, and learn good code organization. 
 
-\section{Develop a dsesign for your scene}
+\section{Develop a design for your scene}
 Think about an everyday scene on MDI. You will design a scene on paper as a collection of complex objects. Come up with at least 3 complex objects of your own that you want to create for your scene. Think about what shapes you need to create the complex objects.
 
 \textbf{Take a photo of your design document and include it in your report.} 
@@ -93,9 +93,9 @@ Think about an everyday scene on MDI. You will design a scene on paper as a coll
 
 
 \subsection{Reset turtle heading in the \texttt{goto} function}
-In your \texttt{goto} function in \texttt{shapelib.py}, add a call to the \texttt{setheading} turtle function so that the turtle always faces east when you call \texttt{goto} (We are using "standard mode").
+If you did not already do so, in your \textcolor{blue}{\texttt{goto}} function in \texttt{shapelib.py}, add a call to the \texttt{setheading} turtle function so that the turtle always faces east when you call \textcolor{blue}{\texttt{goto}} (We are using "standard mode").
 
-This may be helpful when you create your scene because you will know the turtle is always facing east when it moves to draw a new shap.e
+This may be helpful when you create your scene because you will know the turtle is always facing east when it moves to draw a new shape.
 
 \section{Make two or more simple shapes in \texttt{shapelib.py}}
 They could be shapes like a rectangle, circle, non-equilateral triangle, n-gon, etc. Each function should minimally take parameters for: (x location, y location, and necessary size information).
@@ -106,13 +106,13 @@ Some important guidelines:
 \item You want to make sure that your shapes draw properly no matter where they are drawn on the screen, what the size parameter is, or what the heading of the turtle happens to be when the shape function executes.
 \end{itemize}
 
-\textbf{Test out each of your functions one-by-one as you make them.} This means calling your two shapes in main code at the bottom of main.py several times to draw each in a few different positions and sizes.
+\textbf{Test out each of your functions one-by-one as you make them.} This means calling your two shapes in main code at the bottom of your \texttt{shapelib.py} file several times to draw each in a few different positions and sizes.
 Take a screenshot. This is \textbf{Required Images 2 and 3} that you should include and describe in your written report.
 
 \section{Make two compound shape functions in \texttt{shapelib.py}}
 These should be things you see around MDI (e.g. buildings, people, trees, etc.). The objects should be built from at least two of your simple shapes (e.g. triangles, rectangles, circles, etc.) from your shape library.
 
-Just like \texttt{triangleStack} from lab, your compound shape functions should take at least three parameters: (x position, y position, scale).
+Just like \textcolor{blue}{\texttt{triangleStack}} from lab, your compound shape functions should take at least three parameters: (x position, y position, scale).
 
 Remember the process for designing complex shapes:
 
@@ -120,17 +120,24 @@ Remember the process for designing complex shapes:
 \item Hard-code all parameter values in your function with actual numbers to make something that looks good.
 \item Replace the position of your first shape with (x, y). Convert the remaining shape positions to offsets.
 \item Multiply the scale parameter to sizes and offsets, not positions.
-Your shapes should draw properly at any scale, location, or turtle orientation.
+\item Your shapes should draw properly at any scale, location, or turtle orientation.
 \end{itemize}
 
 Take a screenshot of both compound objects. This is \textbf{Required Images 4 and 5} that you should include and explain in your written report.
 
 
 \section{Make a scene}
-Write your code in a function called \texttt{myScene} in \texttt{main.py}.
-It should use the simple and compound shapes that you have made — drawing them in different positions and sizes. You can also use color and the random module to make your scene more complex and interesting.
+Your final scene will rely on your shape library.
+Make a new file called \texttt{main.py} and do the following:
+\begin{itemize}
+\item put your name, date, and purpose in a header comment
+\item include the commands: \texttt{import turtle} and on a new line \texttt{import shapelib}
+\item Define a function called \textcolor{blue}{\texttt{myScene}}: which will use the simple and compound shapes that you have made — drawing them in different positions and sizes. You can also use color and the random module to make your scene more complex and interesting.
+\item to call functions from your shapelib use: \texttt{shapelib.triangle(100)}. Where the dot is tellin the python interperter to look in the file shapelib and grab the correct function
+\item You may notice that if you have main code in \texttt{shapelib.py} this will also run when you run \texttt{main.py}. For now comment out any main function calls in \texttt{shapelib.py}.
+\end{itemize}
 
-Take a screenshot. This is \textbf{Required Image 6} that you should include in your report.
+When you are happy with your scene, take a screenshot. This is \textbf{Required Image 6} that you should include in your report.
 
 \section{Extensions}
 You have completed the core tasks for this assignment. This will get you up to 27/30 points.
@@ -159,7 +166,7 @@ Each report consists of:
 \item Abstract: A one paragraph summary of the project
 \item Results: All 4 required images showing what you created alongside a description of what each image is and how you designed / created it with code.
 \item Conclusion: A brief description (1-3 sentences) of what you learned.
-\item AI Usage Statement: A statement on if you used AI on this project. Reflection on how you used AI for the project including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorparated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violatoin of the academic integrity policy.
+\item AI Usage Statement: A statement on if you used AI on this project. Reflection on how you used AI for the project including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorporated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violation of the academic integrity policy.
 \item Acknowledgments: A list of websites that you used and people you worked with including TAs and professors.
 \end{enumerate}
 
@@ -170,7 +177,7 @@ Each week you need to include all code that is necessary to create the results s
 Please do not delete code, instead comment code out as necessary.
 If you have results in your report and there is no corresponding code I have no way of knowing where you got the result from.
 
-When you submit your code I should be able to run \textit{python <filename>.py} and get the following:
+When you submit your code I should be able to run \textit{python $<$filename$>$.py} and get the following:
 \begin{itemize}
 \item \texttt{lab2.py} A stack of triangles drawn in different positions and at different sizes
   \item \texttt{main.py} Your MDI scene. 

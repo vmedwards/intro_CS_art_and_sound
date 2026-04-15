@@ -7,7 +7,11 @@ Purpose: Complete Lab 1
 
 from turtle import *
 
+forward(100)
+right(90)
+forward(50)
 
+"""
 forward(100)
 right(60)
 forward(100)
@@ -20,5 +24,6 @@ forward(100)
 right(60)
 forward(100)
 right(60)
+"""
 
 exitonclick()

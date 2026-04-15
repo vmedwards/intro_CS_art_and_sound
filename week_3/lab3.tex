@@ -69,7 +69,7 @@
 \begin{document}
 
 \begin{center}
-  {\Large {\bf Lab 3: Making use of for loops}}
+  {\Large {\bf Lab 3: Making use of for loops, conditionals, and command line parameters}}
   
 \end{center}
 
@@ -78,7 +78,7 @@
 \vspace{5pt}
 
 \section{Summary}
-In this lab, we will reduce the number of lines of code by taking advantage of for loops. 
+In this lab, we are going to put into practice ways to organize code, take in input from a user, and reduce the number of lines of code by taking advantage of for loops.
 
 \section{Setup}
 \begin{itemize}
@@ -90,48 +90,168 @@ In this lab, we will reduce the number of lines of code by taking advantage of f
   \item Confirm your current directory by typing \texttt{pwd}.
 \end{itemize}
 
-In VS Code, make a new file called \texttt{lab3.py}. Remember: you can do this using the \texttt{code lab3.py} in the terminal of your VS Code IDE. Make sure you are in the correct directory. 
+\section{Discover Command-line Arguments}
+Create a new file called \texttt{com.py}, and open it in VS Code. 
+When we run a python program in the Terminal (or command-line), sometimes we want to pass information to the program to control its behavior. The following steps will show you how to get access to the command-line information.
 
-\section{Using Loops to define simple shapes}
-We are going to rework shapes in your file \texttt{shapelib.py} from last week.
-In your file \texttt{lab3.py}, do the following:
+\subsection{Import packages}
+After the header comment, write the command to tell python to import the sys package:
+\begin{lstlisting}[language=Python]
+import sys
+\end{lstlisting}
+  
+\subsection{Explore the sys package}
+Find out what the sys package can do. Put the following line of code in your file.
+
+\begin{lstlisting}[language=Python]
+print(sys.argv)
+\end{lstlisting} 
+
+Save your file, cd to your working directory, and then run your \texttt{com.py} file. What do you see?
+
+Type some additional things on the command line after \textit{python3 com.py}. For example, try:
+
+\vspace{0.5cm}
+\textit{python com.py hello world 1 2 3}
+\vspace{0.5cm}
+
+What do you see?
+
+The sys package gives you the ability to see what the user has typed on the command line. Each individual string (defined by spaces) from the command line is an entry in a list, which is a data type that we describe as a sequential container.
+
+\subsection{Access individual strings}
+Add the following lines to your \texttt{com.py} file.
+\begin{lstlisting}[language=Python]
+print(sys.argv[0])
+a = sys.argv[3]
+print(a * 3)
+b = int( sys.argv[3] )
+print( b * 3)
+\end{lstlisting}
+
+Run the program using the following command.
+
+\vspace{0.5cm}
+\textit{python com.py three times 3}
+\vspace{0.5cm}
+
+What is going on? The first of the above three lines prints out the first item in the sys.argv list. The second line accesses the fourth item in the sys.argv list, which is a string with the digit '3' in it, and assigns it to the variable \texttt{a}. The third line multiplies a by 3 and prints the result, which is the string repeated three times. The fourth line accesses the fourth item in the sys.argv list, converts it to an integer and assigns the result to b. Then the fifth line multiplies b by 3 and prints out the results of 3*3.
+How could you use the capability to access values from the command line in a program? What do you need to do in order to use command line arguments as numbers?
+
+\section{Using Loops to define a star}
+In VS Code, make a new file called \texttt{lab3.py}. Remember: you can do this using the \texttt{code lab3.py} in the terminal of your VS Code IDE. Make sure you are in the correct directory.
+We are going to update how we have been drawing shapes to use for loops.
+In your file \texttt{lab3.py}, we will start by drawing a star.
 \begin{itemize}
-\item Put a file header
-\item Import turtle
-\item Copy the \texttt{goto} function from last week
-\item Next define a function \texttt{square} which takes in as parameters \texttt{x, y, scale}. Which refers to the x and y location and scale of the shape. Remember when scale is 1 the default forward is 100.
-\item In \texttt{square}, use a for loop to draw a square. There should be 4 lines of code in your function.
-\item Test your new function at the bottom of your file and before \texttt{turtle.exitonclick()}.
+\item Include your name, date, and purpose of the file in a comment at the top
+\item Include the necessary import statements: \texttt{import turtle} and \texttt{import sys}
+\item Copy the \textcolor{blue}{\texttt{goto}} function from lab 2. 
+\item Copy the following code into your file, remember to put your function above your main code and below import statements.
+\begin{lstlisting}[language=Python]
+# draw a star with the given number of rays of the given size
+def star( x, y, rays, size ):
+    print("Drawing a star with", rays, "rays of size", size )
+    goto(x, y)
+    # loop for the number of rays
+    for i in range(rays):
+        turtle.setheading( i * 360 / rays )
+        turtle.forward( size )
+        turtle.backward( size )
+
+# top level code, make drawing fast
+turtle.tracer(False)
+
+# assign values to variables
+numrays = 10
+raysize = 50
+
+# call the star function
+star(numrays, raysize)
+
+turtle.update()
+turtle.mainloop()
+
+\end{lstlisting}
 \end{itemize}
 
-Next, we will defin a function called \texttt{polygon} that takes in as parameters \texttt{x, y, scale, N}, where \texttt{N} is the number of sides.
+\section{Control the shape using command line parameters}
+Modify the \texttt{lab3.py} code so that the number of rays and the ray size are controlled by command line parameters. Start by importing the \texttt{sys} package. You will need to use \texttt{sys.argv} and a cast to assign \texttt{int} values to \texttt{numrays} and to \texttt{raysize}. Look at the \texttt{com.py} code for an example.
+
+Run your code several different times using different command line arguments. For example:
+
+\vspace{0.5cm}
+\textit{python lab3.py 8 100}
+\vspace{5mm}
+
+What happens if you forget to put arguments on the command line?
+
+\subsection{Catching errors}
+One thing you discover when you write software is that users do not always do what they should. They don't always give you enough information or the correct information. If you want to have a robust program, you have to check the information coming in to see if it is there.
+
+For example, are there reasonable bounds on the number of stars in the image? What if the user does not provide enough command line parameters?
+
+One strategy is to pick a default value (e.g. 10) and create a variable to hold the default value.
+
+\vspace{5mm}
+\texttt{rays = 10}
+\vspace{5mm}
+
+If the user gives you a new value, then use the new value. The following code executes this idea. Add it to your \texttt{lab3.py} file. This chunk of code should replace the first assignment to \texttt{numrays}.
+\begin{lstlisting}[language=Python]
+# assign a default value
+numrays = 10
+
+# check for user input
+if len( sys.argv ) > 1:
+    # re-assign the value if the user provided one
+    numrays = int( sys.argv[1] )
+\end{lstlisting}
+The idea of having default behavior that the user can override is common in computer programs. Do the same thing for the raysize variable that uses sys.argv[2]. Then show that your program will work with no command line parameters, one parameter, and two parameters.
+
+\section{Using the range function}
+Now we're going to explore the range function that is important for common loops in Python. Open up the Python interpreter in a terminal by just typing python. The interpreter lets you try out python code directly. Type the following code into the interpreter and run it.
+
+\begin{lstlisting}[language=Python]
+for i in range(5): print(i)
+\end{lstlisting}
+
 \begin{itemize}
-\item Define a variable \texttt{angle} and set the value to be equal to 360 divided by the number of sides.
-\item using a for loop write the 3 lines of code total needed to draw any N-sided polygon.
-\item remember to call your \texttt{goto} function.
-\item Test your new function with a range of shapes to make sure it works as you anticipate.
+\item What does the code print? What is the value of the loop variable at each iteration of the loop?
+\item Try giving the range function two arguments (e.g. range(5, 10)) What does it print? Try several different pairs of arguments.
+\item Try giving the range function three arguments (e.g. range(5, 10, 2)). What does it print? Try several different sets of arguments.
+\item Try getting help on the range function by typing \texttt{help( range )}
+\item How does it match with what you discovered? Use 'q' to get out of the help browser.
+\item type \texttt{exit()} to leave the python interpreter. 
 \end{itemize}
 
-\section{Design a repeating Geometric pattern}
-We are going to use for loops to build a repeating pattern.
-The goal is to add generality using function parameters to allow the pattern to be as large as we want.
-\begin{itemize}
-\item Copy the following into your lab3.py file. 
+\subsection{Draw many stars}
+Edit your top level code so it calls the star function inside a loop. Use \texttt{x} as your loop variable. Set up the arguments to your range function so that it starts at -200, ends at 200, and steps by 50. Also inside the loop, and before drawing the star, add a penup, a goto, and a pendown. The goto should send the turtle to location \texttt{(x, 0)}, where \texttt{x} is your loop variable. How many stars should it draw, and where will they be?
 
-\item Nested for loops
-\item color
-\item fill shape
-\item draw shape
-\item testing 
-\end{itemize}
+\subsection{More code organization}
+The final lesson on code organization today is enclosing all of your top-level code in a main function and the making the execution of that function dependent upon whether the file was imported into another file or run from the command line.
 
+Put all of your top-level code in the body of a new function called \texttt{main}. After the main function definition, put the following top-level code.
+
+\begin{lstlisting}[language=Python]
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+Run your file.
+
+The above conditional statement will be true only when you run the python file on the command line. If you were to import this file into another python program, the conditional statement would evaluate to false and the main function would not run.
+
+The real benefit is that you can write test functions for a collection of functions--like your shapes.py file--without having your test function interfere with importing it into other programs.
+
+From now on, your files should always have that conditional in front of top-level code.
+
+\section{Submission}
+Please upload your \texttt{lab3.py} code to the google class room by midnight on \textbf{Friday April 17, 2026}.
 
 \section{Acknowledgments}
-This lab is from Professor Hannen Wolfe in the Colby College CS Department. 
+This lab is from Professor Bruce Maxwell in the Colby College CS Department. 
 Sources:
 \begin{itemize}
-\item \footnotesize{\url{https://cs.colby.edu/hewolfe/courses/cs151/f21/projects/02/Lab02FunctionsToControlShapes.html}}
+\item \footnotesize{\url{https://cs.colby.edu/courses/S20/cs151-labs/labs/lab03/}}
 \end{itemize}
-
-
 \end{document}

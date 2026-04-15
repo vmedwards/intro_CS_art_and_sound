@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\pagestyle{empty}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,euscript,graphicx}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}
+\usepackage{fancybox,color}
+\usepackage[footnotesize]{caption}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[top=0.9375in, right=0.9375in, left=0.9375in, bottom=0.9375in, centering]{geometry}
+\usepackage{bm}
+
+\usepackage{amsthm}
+
+
+% -- Loading the code block package:
+\usepackage{listings}
+% -- Basic formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{times}
+\setlength{\parindent}{8pt}
+\usepackage{indentfirst}
+% -- Defining colors:
+\usepackage[dvipsnames]{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% Definig a custom style:
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% -- Setting up the custom style:
+\lstset{style=mystyle}
+
+
+% IEEE uses Times Roman font, so we'll default to Times.
+% These three commands make up the entire times.sty package.
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+\newcommand{\squeeze}{\vspace{-0.1in}}
+\newcommand{\changed}[1]{\textcolor{blue}{#1}} %generates text in blue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\Large {\bf Check-In 1}}
+  
+\end{center}
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+Name:
+
+\vspace{5mm}
+
+Email:
+
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\begin{lstlisting}[language=Python]
+def computeValue(t1, t2):
+    toatl = t1 - t2
+    return(total)
+
+y1 = 5
+y2 = 10
+value = computeValue(y1, y2)
+print("The value is ", value)
+
+x = "fifteen"
+print("The answer is: " + x)
+\end{lstlisting}
+
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\begin{enumerate}
+\item Write down a representation of the global symbol table (name, type, value) at the last line of code. The symbol table should include all identifiers defined by the code up to that point.
+
+\vspace{45mm}
+  
+\item Write down what the program prints when run.
+
+  \vspace{15mm}
+
+\item In what symbol table do the parameters \texttt{\textcolor{red}{t1}} and \textcolor{red}{\texttt{t2}} belong?
+
+  \vspace{15mm}
+
+\item Would the code run if you added one or both of the following lines: \texttt{forward(100)} or \texttt{turtle.forward(100)}? Why or why not? 
+
+  \vspace{15mm}
+  
+\end{enumerate}
+
+
+%\Large{\bf Acknowledgments}
+
+%\normalsize{Sources: These questions are inspired by Professor Bruce Maxwell's CS 151 and CS 152 course. The quotes and character names come from Star Trek the Next Generation.}
+
+\end{document}

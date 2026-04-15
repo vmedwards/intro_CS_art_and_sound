@@ -1,0 +1,239 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,euscript,graphicx}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}
+\usepackage{fancybox,color}
+\usepackage[footnotesize]{caption}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[top=0.9375in, right=0.9375in, left=0.9375in, bottom=0.9375in, centering]{geometry}
+\usepackage{bm}
+
+\usepackage{amsthm}
+
+
+% -- Loading the code block package:
+\usepackage{listings}
+% -- Basic formatting
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{times}
+\setlength{\parindent}{8pt}
+\usepackage{indentfirst}
+% -- Defining colors:
+\usepackage[dvipsnames]{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% Definig a custom style:
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+% -- Setting up the custom style:
+\lstset{style=mystyle}
+
+
+% IEEE uses Times Roman font, so we'll default to Times.
+% These three commands make up the entire times.sty package.
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+\newcommand{\squeeze}{\vspace{-0.1in}}
+\newcommand{\changed}[1]{\textcolor{blue}{#1}} %generates text in blue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\Large {\bf Assignment 3: Scenes within scenes}}
+  
+\end{center}
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+\section{Summary}
+The goal for this week is to make a parametric scene which will allow scenes within scenes.
+To achieve this goal we will make improvements to our shape library. 
+
+\section{Making better shapes}
+Create a new file called \texttt{bettershapelib.py}.
+We are going to draw a series of new shapes and have you update / modify your previous shapes. 
+
+\subsection{Draw a polygon}
+Here are the steps for drawing two shapes in your better shapelib. 
+\begin{itemize}
+  \item First, include your name, date, and purpose of the file in a block comment at the top of the file.
+\item Include the necessary import statements: \texttt{import turtle}
+\item Copy the \textcolor{blue}{\texttt{goto}} function from project 2.  
+\item Next define a function \textcolor{blue}{\texttt{polygon}} which takes in as parameters \texttt{x, y, scale, N, fill, color}, remember this is the x and y location, when scale is 1 forward is 100, N is the number of sides, fill is a boolean to tell you if you should fill the shape, and color is the color to draw.
+\item The first line of code in the function should be a call to the function \texttt{goto()}. 
+\item Define a variable \texttt{angle} and set the value to be equal to 360 divided by the number of sides parameter, \texttt{N}.
+\item make a call to the function \texttt{goto} to move the shape anywhere on the screen, using parameters \texttt{x, y}.
+\item write a for loop that executes N times. 
+\item Indented into the for loop, write 2  lines of code total needed to draw any N-sided polygon. Remember we need to use the scale parameter. Like before we want forward to be 100 when scale is equal to 1. 
+\item The fill parameter will call the function \texttt{turtle.begin\_fill()} immediately before drawing the shape, draw the shape, and then call \texttt{turtle.end\_fill()} immediately after completing the shape. Make sure to start filling after the call to \texttt{goto}.
+\item If the value of \texttt{fill} is \texttt{True} then turn on the filling, otherwise do nothing. Your code should look like:
+  \begin{lstlisting}[language=Python]
+if fill == True:
+    # Do something
+    \end{lstlisting}
+  \textbf{Food for thought}: Think carefully about whether you need to compare the value of fill to True. An if statement test needs to generate a boolean value. If fill is already a boolean, do you need to compare it to True?
+  \item Add code that uses the color parameter. You can either supply a builtin color string like "Foret Green" or a red green blue (rgb) tuple (0.15, 0.6, 0.2). Set the color at the beginning of your shape sing \texttt{turtle.color().}
+  \item Test your new function at the bottom of your file and before \textcolor{blue}{\texttt{turtle.exitonclick()}}.
+    \begin{lstlisting}[language=Python]
+if __name__ == "__main__":
+    polygon(0, 0, scale, 4, True, "red") # draw a square
+    turtle.exitonclick()
+    \end{lstlisting}
+  \item Your added lines of code will draw a square at (0, 0). Any code you run indented into the if statement will only execute when this file is called when you run: \textit{python bettershapelib.py}.
+  \item Download the test file in the google classrom. Read over the code and run the test file which will test your polygon function. Note if you named your file something other than \texttt{betterShapelib.py} you will need to modify the import statement.
+    \item Modify the code in \texttt{test\_polygon.py} to make a geometric pattern with different shapes. Look how the loop index variables are being used to modify the color and location of the shape.
+\end{itemize}
+
+Take a screen shot of your final product. This is \textbf{Required Image 1} for your project report.
+
+\section{Improve two more shapes functions}
+For at least 2 more of your basic shape functions from Project 2, copy them to your
+
+\texttt{betterShapelib.py} file, edit them to use loops wherever it makes sense and give them a parameter (\textit{e.g.} fill) that controls whether the shape is filled (possibly partly filled) or not. As with the polygon function, you may also want to add a parameter for color.
+
+\section{Create two new aggregate shapes}
+Create two new aggregate shapes in your \texttt{betterShapelib.py} file, using the new functions with the fill (and possibly color) parameter, and take advantage of looping wherever possible. The goal is to make your code as efficient as possible in terms of the number of lines of code and the simplicity of that code.
+
+If you wish, use conditional statements to enable variations on the complex shapes. For example, you can make any function call dependent upon a random number using the following type of test. In the example below, the block will be drawn 70\% of the time.
+
+\begin{lstlisting}[language=Python]
+if random.random() < 0.7:
+    polygon( x, y, scale, 5, True, "red")
+\end{lstlisting}
+
+\section{Create fully parameterized scene}
+Write the scene to be parameterized using an x, y location and scale parameters. In other words, you should be able to draw the scene anywhere on the screen at any size. You can take inspiration from any source or style of art.
+
+%# XXX :FIX THIS 
+Consider the following example. If you have a scene like this:
+\begin{lstlisting}[language=Python]
+def myscene():
+    polygon( 0, 0, 1, 4, True, "green")
+    goto(0, 100, 1, 3, True, "blue")
+\end{lstlisting}
+
+You can convert it to a scalable, moveable scene using the following rules. First, change the scene function to have parameters x, y, and scale.
+
+\begin{itemize}
+  
+\item For calls to a function that takes (x, y, size) or (x, y, width, height):
+block( a, b, c, d ) becomes block( x+a*scale, y+b*scale, c*scale, d*scale )
+
+\item For calls to a goto function (if any):
+goto( a, b ) becomes goto( x + a*scale, y + b*scale )
+
+\item For calls to the turtle forward or circle functions:
+turtle.forward( a ) becomes turtle.forward( a * scale )
+\end{itemize}
+
+Angles do not change. Following the above rules, the myscene function would be the following.
+\begin{lstlisting}[language=Python]
+def myscene(x, y, scale):
+  block(x + 5*scale, y + 10*scale, 50*scale, 100*scale)
+  triangle( x + 5*scale, y + 100*scale, 50*scale )
+  goto( x + 30*scale, y + 30*scale )
+  turtle.forward( 10*scale )
+  turtle.left( 90 ) 
+  turtle.circle( 20*scale )
+\end{lstlisting}
+
+
+\section{Create an image with multiple copies of your scene}
+Create a task1.py file that imports betterShapelib.py and uses the scene function to draw several versions of the scene of different sizes and in different locations. Note that you can assign a menmonic to any package you import. For example, the following imports betterShapelib, but assigns the module the name bsl instead of betterShapelib.
+
+\begin{lstlisting}[language=Python]
+import betterShapelib.py as bsl
+\end{lstlisting}  
+
+That means you can type bsl.myshape(x, y, scale) instead of betterShapelib.myshape(x, y, scale).
+
+\textbf{The second required picture is an image with three differently sized and positioned versions of your first scene.}
+
+\section{Incorporate variation in a scene}
+Edit at least one of your scenes so that some aspect of the scene (e.g. the size or number of an element, or the color of an object) depends on a new parameter to the scene function. The variation does not have to be fancy.
+
+Set up your overall program so that the value of the parameter comes from a command-line argument. Create two images showing how the command line argument affects the appearance of your scene. For example, the command-line argument might determine whether a particular object is red or blue.
+
+\textbf{The third and fourth required images should be examples of your scene drawn using two different values for the command-line argument.}
+
+\section{Extensions}
+Extensions are your opportunity to customize your project, learn something else of interest to you, and improve your grade. The following are some suggested extensions, but you are free to choose your own. Be sure to describe any extensions you complete in your report. Include pictures.
+
+\begin{itemize}
+\item Make use of the range function in creative ways, using 2 or 3 arguments.
+\item Demonstrate several levels of encapsulation (scenes within scenes within scenes).
+\item Make complex scenes without using complex code.
+\item Have the command line arguments control a number of different aspects of the scene. For this one, you must be sure that you use sys.argv only in your top-level code and main() function. If you have another function in betterShapelib.py access the command line arguments directly, then you are dramatically restricting the breadth of programs that can import and use that function.
+\end{itemize}
+
+\section{Submission}
+For each project you will include a brief written report along with your code files.
+We are going to go over the submission procedure now as a class. 
+
+\subsection{Report}
+Each report consists of:
+\begin{enumerate}
+\item Header at the top of the page with your name, date and class
+\item A title that describes the content of the report. 
+\item Abstract: A one paragraph summary of the project
+\item Results: All 4 required images showing what you created alongside a description of what each image is and how you designed / created it with code.
+\item Conclusion: A brief description (1-3 sentences) of what you learned.
+\item AI Usage Statement: A statement on if you used AI on this project. Reflection on how you used AI for the project including the software used. If you did not use AI for the project you still need to include a usage statement that says you did not use the tool. Include reflection on how you might have used the tool. Include all prompts that you used and how the results were incorporated into the project. A good rule of thumb, is to only submit work that you can completely explain. If you use code you do not understand / cannot explain this is considered a violation of the academic integrity policy.
+\item Acknowledgments: A list of websites that you used and people you worked with including TAs and professors.
+\end{enumerate}
+
+You will create a google doc attached to the assignment in google classroom and fill it in with this material for assignment 3. 
+
+\subsection{Code submission}
+Each week you need to include all code that is necessary to create the results shown in your report.
+Please do not delete code, instead comment code out as necessary.
+If you have results in your report and there is no corresponding code I have no way of knowing where you got the result from.
+
+When you submit your code I should be able to run \textit{python $<$filename$>$.py} and get the following:
+\begin{itemize}
+  \item \texttt{main.py} Your MDI scene. 
+\end{itemize}
+
+In google classroom, upload your \texttt{betterShapelib.py}. 
+Remember to submit your project.
+
+\section{Acknowledgments}
+These instructions are modified from Professor Bruce Maxwellin the Colby College CS Department. 
+Sources:
+\begin{itemize}
+  \item \footnotesize{\url{https://cs.colby.edu/courses/S20/cs151-labs/labs/lab03/assignment.php}}
+\end{itemize}
+
+
+\end{document}
